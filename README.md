@@ -6,7 +6,7 @@
 
 ## 다운로드
 
-**[최신 버전 받기 (Releases)](../../releases/latest)** → `ChiyoFilm-1.1.0.pkg`
+**[최신 버전 받기 (Releases)](../../releases/latest)** → `ChiyoFilm-1.1.2.pkg`
 
 - macOS 13 이상, Apple Silicon (M1 이상)
 - Lightroom Classic, Photoshop 2025 이상 (둘 중 쓰는 것만 있으면 됩니다. 편집기만 단독으로도 쓸 수 있어요)
@@ -16,7 +16,7 @@
 ## 설치
 
 1. Photoshop과 Lightroom Classic을 종료합니다 (작업 중인 문서는 먼저 저장).
-2. `ChiyoFilm-1.1.0.pkg`를 엽니다. “확인되지 않은 개발자” 경고가 나오면 Finder에서 **우클릭 › 열기**, 또는 **시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기**.
+2. `ChiyoFilm-1.1.2.pkg`를 엽니다. “확인되지 않은 개발자” 경고가 나오면 Finder에서 **우클릭 › 열기**, 또는 **시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기**.
 3. 편집기 앱, Photoshop 플러그인, Lightroom 플러그인이 한 번에 설치됩니다.
 4. **Lightroom에서 한 번만:** 환경 설정 › 외부 편집 › 추가 외부 편집기 › 선택 › `/Applications/Chiyo Film.app`
    - 파일 형식 **TIFF 또는 PSD**, **16비트**, 색상 공간은 평소 쓰는 것과 같게 (ProPhoto RGB 또는 Adobe RGB)
@@ -41,6 +41,7 @@
 - **필름 효과**: 인화 매체(현상소 스캔, 인화지, 영화 인화), 광선(블룸·할레이션·확산·모션·스트릭), 그레인, 빛 샘, 먼지·스크래치, 오버스캔
 - **마스크**: 원형·선형·브러시·밝기·색상 범위, 자동 피사체·사람·하늘. 마스크마다 밝은/어두운 영역·텍스처·부분 대비·디헤이즈·생동감·노이즈 감소·색상 보정
 - **자르기·회전·수평 맞추기**: 비율 프리셋, 수평선 긋기, 90° 회전·뒤집기 (R 키)
+- **액자·배경**: 흰 여백, 즉석 사진 테두리, 흐린 배경 스토리(9:16) 등 12가지 액자와 단색·흐림·종이·캔버스 배경
 - **여러 사진에 한 번에 적용**: 편집기에서 사진·폴더를 골라 TIFF·JPEG·PSD로 저장 (⇧⌘B)
 - **참조 사진으로 룩 맞추기**, 기본 룩 28종, 내 프리셋, `.cube` LUT 내보내기
 - GPU 실시간 미리보기, 히스토그램·웨이브폼·RGB 퍼레이드
@@ -58,7 +59,7 @@
 ## 제거
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.1.0/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/1.1.2/uninstall.sh"
 ```
 
 프리셋·즐겨찾기(`~/Library/Application Support/Chiyo Film`)는 남습니다.
