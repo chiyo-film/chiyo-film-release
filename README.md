@@ -12,7 +12,7 @@
 
 ## 다운로드
 
-**[최신 버전 받기 (Releases)](../../releases/latest)** → `ChiyoFilm-1.3.0.pkg`
+**[최신 버전 받기 (Releases)](../../releases/latest)** → `ChiyoFilm-1.3.1.pkg`
 
 - macOS 13 이상, Apple Silicon (M1 이상)
 - Lightroom Classic, Photoshop 2025 이상 (둘 중 쓰는 것만 있으면 됩니다. 편집기만 단독으로도 쓸 수 있어요)
@@ -22,7 +22,7 @@
 ## 설치
 
 1. Photoshop과 Lightroom Classic을 종료합니다 (작업 중인 문서는 먼저 저장).
-2. `ChiyoFilm-1.3.0.pkg`를 엽니다. “확인되지 않은 개발자” 경고가 나오면 Finder에서 **우클릭 › 열기**, 또는 **시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기**.
+2. `ChiyoFilm-1.3.1.pkg`를 엽니다. “확인되지 않은 개발자” 경고가 나오면 Finder에서 **우클릭 › 열기**, 또는 **시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기**.
 3. 편집기 앱, Photoshop 플러그인, Lightroom 플러그인이 한 번에 설치됩니다.
 4. **Lightroom에서 한 번만:** 환경 설정 › 외부 편집 › 추가 외부 편집기 › 선택 › `/Applications/Chiyo Film.app`
    - 파일 형식 **TIFF 또는 PSD**, **16비트**, 색상 공간은 평소 쓰는 것과 같게 (ProPhoto RGB 또는 Adobe RGB)
@@ -77,7 +77,7 @@
 ## 제거
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.3.0/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/1.3.1/uninstall.sh"
 ```
 
 프리셋·즐겨찾기(`~/Library/Application Support/Chiyo Film`)는 남습니다.
