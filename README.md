@@ -1,6 +1,12 @@
 # Chiyo Film
 
-사진에 실제 필름의 색과 입자를 입히는 Mac 편집기. Lightroom Classic과 Photoshop에서 바로 열어 씁니다.
+**무료 · Lightroom Classic / Photoshop에서 바로 · 필름 룩 152종**
+
+사진에 실제 필름의 색과 입자를 입히는 Mac 편집기. 필름 룩에 사진 보정, 얼굴 피부 보정, 액자까지 한 앱에서.
+
+![보정 전후: N101 자연스러운 인물 · S201 강렬한 풍경 · C601 차가운 야경 · M101 거친 흑백](img/00-before-after.jpg)
+
+<sub>왼쪽 원본 · 오른쪽 Chiyo Film (필름만 고르고 다른 조정 없음). 예시 사진은 CC0(퍼블릭 도메인)입니다.</sub>
 
 ![Chiyo Film 편집기](img/01-editor.png)
 
