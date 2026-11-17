@@ -1,0 +1,62 @@
+Chiyo Film Terms of Use (End User License Agreement) — English translation
+Last updated: 2026-11-13
+
+This is an English translation of the Korean terms in LICENSE, provided for convenience. The
+Korean text is the governing version; if the two differ, the Korean text prevails.
+
+By installing or using Chiyo Film (including the editor app, the Photoshop plug-in, the Lightroom
+Classic plug-in and the documentation and data provided with them; the "Software"), you agree to
+the terms below. If you do not agree, do not install or use the Software.
+
+1. License
+The Software is a free test version. You may use it only for personal, non-commercial photo
+editing. You own the rights to the photos you create with the Software, and you may use those
+photos freely, including for commercial purposes.
+
+2. Restrictions
+You may not sell, rent or redistribute the Software (including the installer), modify, reverse
+engineer or decompile it, or remove its copyright notices. When recommending it to others, please
+point them to the official release page (https://github.com/chiyo-film/chiyo-film-release).
+
+3. Ownership
+The copyright and all other rights in the Software belong to the Chiyo Film developer. These terms
+only permit the use described in section 1 and do not transfer any rights.
+
+4. Disclaimer of warranty
+The Software is provided "as is". To the extent permitted by law, no express or implied warranty
+is given, including merchantability, fitness for a particular purpose, freedom from errors or
+uninterrupted operation. As a test version, results may differ from what you expect and files may
+be damaged. Always keep your original photos backed up separately while using it.
+
+5. Limitation of liability
+To the maximum extent permitted by law, the developer is not liable for any loss of photos or
+data, business interruption, or other direct, indirect or incidental damages arising from the use
+of, or inability to use, the Software, except for damages caused by the developer's intent or
+gross negligence.
+
+6. Trademarks and film names
+Film and manufacturer names such as Kodak, Fujifilm, Ilford, Harman, Kentmere, Agfa, Lomography,
+CineStill, Polaroid, Rollei, Foma, Adox, Konica, ORWO, Bergger, Ferrania and JCH, as well as Adobe,
+Photoshop and Lightroom, are trademarks of their respective owners. The Software uses them only to
+describe which film's look served as a reference, and has no affiliation with, sponsorship by or
+endorsement from their owners. The film looks are expressive models built from public
+information and are not guaranteed to match the color or grain of the actual films.
+
+7. Privacy
+The Software does not connect to the internet and does not collect or transmit photos or personal
+information. Edit settings, presets and logs are stored only on your Mac
+(~/Library/Application Support/Chiyo Film, ~/Library/Logs/Chiyo Film). A "problem report file" is
+shared only when you send it yourself, and it contains no photos.
+
+8. Changes and termination
+The developer may change the Software and these terms, or stop distributing it, without notice.
+Changed terms come with the new version, and installing a new version means you agree to them. If
+you do not comply with these terms, your license ends automatically and you must delete the
+Software.
+
+9. Governing law
+These terms are governed by the laws of the Republic of Korea.
+
+Questions and problem reports: https://github.com/chiyo-film/chiyo-film-release/issues
+
+Copyright (c) 2026 Chiyo Film. All rights reserved.

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chiyo Film 1.0 User Manual</title>
+<style>
+  @page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+  body { font-family: -apple-system, "Apple SD Gothic Neo", "Helvetica Neue", sans-serif; color: #1d1d1f; font-size: 10.5pt; line-height: 1.6; }
+  h1 { font-size: 26pt; margin: 0 0 4mm; letter-spacing: -0.5px; }
+  h2 { font-size: 15pt; margin: 9mm 0 3mm; padding-bottom: 1.5mm; border-bottom: 2px solid #e8833a; break-after: avoid; }
+  h3 { font-size: 11.5pt; margin: 5mm 0 1.5mm; color: #b85c1c; break-after: avoid; }
+  p, li { margin: 1mm 0; }
+  ul, ol { padding-left: 6mm; margin: 1mm 0 2mm; }
+  table { border-collapse: collapse; width: 100%; margin: 2mm 0 3mm; font-size: 9.5pt; break-inside: avoid; }
+  th, td { border: 1px solid #d9d9de; padding: 1.4mm 2mm; text-align: left; vertical-align: top; }
+  th { background: #f5f2ee; }
+  td:first-child, th:first-child { white-space: nowrap; }
+  .cover { height: 245mm; display: flex; flex-direction: column; justify-content: center; break-after: page; }
+  .cover .sub { font-size: 13pt; color: #555; margin-bottom: 10mm; }
+  .cover img { width: 100%; border-radius: 3mm; box-shadow: 0 2mm 6mm rgba(0,0,0,.25); }
+  .meta { color: #777; font-size: 9.5pt; margin-top: 6mm; }
+  figure { margin: 3mm 0 4mm; break-inside: avoid; }
+  figure img { width: 100%; border-radius: 2mm; border: 1px solid #ddd; }
+  figcaption { font-size: 9pt; color: #666; margin-top: 1mm; }
+  .tip { background: #fff6ec; border-left: 3px solid #e8833a; padding: 2mm 3mm; margin: 2mm 0 3mm; break-inside: avoid; }
+  .warn { background: #f3f5f8; border-left: 3px solid #8a94a6; padding: 2mm 3mm; margin: 2mm 0 3mm; break-inside: avoid; }
+  kbd { font-family: inherit; border: 1px solid #ccc; border-bottom-width: 2px; border-radius: 1mm; padding: 0 1.2mm; font-size: 9pt; background: #fafafa; }
+  .toc li { margin: 0.6mm 0; }
+  .pb { break-before: page; }
+  code { font-family: Menlo, monospace; font-size: 9pt; background: #f2f2f4; padding: 0 1mm; border-radius: 1mm; }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <h1>Chiyo Film 1.0</h1>
+  <div class="sub">A Mac editor that gives your photos the color and grain of real film · User Manual</div>
+  <img src="../img/01-editor.png" alt="Chiyo Film editor">
+  <div class="meta">Version 1.6.0 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
+</section>
+
+<h2>Contents</h2>
+<ol class="toc">
+  <li>Installation</li>
+  <li>Opening photos (Lightroom · Photoshop · standalone)</li>
+  <li>The editor window</li>
+  <li>Choosing a film</li>
+  <li>Adjust tab ① Photo</li>
+  <li>Adjust tab ② Film (Spectral color science)</li>
+  <li>Presets · Built-in looks · Matching a reference photo</li>
+  <li>Masks</li>
+  <li>Crop · Rotate · Straighten</li>
+  <li>Frames · Backgrounds · Multi-photo layouts</li>
+  <li>History · Advanced (Snapshots, LUT export, 언어 · Language, problem reports)</li>
+  <li>Applying to multiple photos at once</li>
+  <li>Lightroom batch rendering</li>
+  <li>Keyboard shortcuts</li>
+  <li>FAQ · Troubleshooting</li>
+</ol>
+
+<h2>1. Installation</h2>
+<ol>
+  <li>Quit Photoshop and Lightroom Classic. (Save any open documents first.)</li>
+  <li>Open <code>ChiyoFilm-1.6.0.pkg</code>. The package is unsigned, so if macOS blocks it, <b>right-click › Open</b> it in Finder, or go to <b>System Settings › Privacy &amp; Security › Open Anyway</b>.</li>
+  <li>The installer puts everything in place in one go:
+    <ul>
+      <li>The editor app: <code>/Applications/Chiyo Film.app</code></li>
+      <li>The Photoshop plug-in (Plugins › Chiyo Film)</li>
+      <li>The Lightroom Classic plug-in (File › Plug-in Extras › Chiyo Film)</li>
+    </ul>
+  </li>
+  <li><b>Once, in Lightroom:</b> go to Preferences › External Editing › Additional External Editor › Choose, and pick <code>Chiyo Film.app</code>.
+    <ul>
+      <li>File Format: <b>TIFF or PSD</b>, Bit Depth: <b>16 bits/component</b></li>
+      <li>Color Space: the same one you normally use (ProPhoto RGB or Adobe RGB)</li>
+      <li>Preset › Save Current Settings as New Preset › “Chiyo Film”</li>
+    </ul>
+  </li>
+</ol>
+<div class="warn">You can install straight over an earlier version. Your presets, favorites and edit history are kept.
+To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chiyo Film/1.6.0/uninstall.sh"</code></div>
+
+<h2>2. Opening photos</h2>
+<h3>Lightroom Classic (external editing)</h3>
+<ol>
+  <li>Select a photo and choose <b>right-click › Edit In › Chiyo Film</b> (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>E</kbd>).</li>
+  <li>Choose “Edit a Copy with Lightroom Adjustments” and click <b>Edit</b>.</li>
+  <li>Make your edits, then click <b>Apply</b> (<kbd>Return</kbd>). The copy is saved and appears right next to the original in Lightroom.</li>
+</ol>
+<div class="tip"><b>Tip — RAW photos:</b> Finish the basic corrections (exposure, white balance and so on) in Lightroom first, then add the film look in Chiyo Film. Color comes out best on photos that are already developed, such as JPEG and TIFF.</div>
+
+<h3>Photoshop</h3>
+<ol>
+  <li>Open a photo and choose <b>Plugins › Chiyo Film › Open Chiyo Film Editor</b>.</li>
+  <li>The first time, if Photoshop asks for permission to launch the editor, turn on <b>“Remember my choice”</b> and allow it.</li>
+  <li>When you apply, a “Chiyo Film · <i>film name</i>” layer is added at the top. One Undo removes it, and when you open the editor again it uses the photo without the earlier Chiyo layer, so effects never stack.</li>
+</ol>
+<p>Supported: RGB 8/16-bit, sRGB · Display P3 · Adobe RGB · ProPhoto RGB. CMYK, HDR and transparent canvases are not supported.</p>
+
+<h3>Opening on its own</h3>
+<p>Drag a JPEG, TIFF or PSD file onto <code>Chiyo Film.app</code> to open it. Applying saves to the same file. Photos with transparent areas are opened over a white background.</p>
+
+<h2 class="pb">3. The editor window</h2>
+<figure><img src="../img/01-editor.png" alt="The editor window"><figcaption>Left: film list · Center: preview · Right: Adjust / Masks / History / Advanced tabs</figcaption></figure>
+<table>
+  <tr><th>Area</th><th>What it holds</th></tr>
+  <tr><td>Left panel</td><td>The <b>Film</b> tab (154 films, viewed By type or By family, with search) and the <b>Presets</b> tab (Built-in look, My presets, Match look to reference photo). Drag the panel edge to resize it; the button at the top left collapses it.</td></tr>
+  <tr><td>Preview</td><td>Zoom and pan with the trackpad. Bottom bar: before/after, side by side, zoom level, clipping warnings, Scopes (Histogram · Waveform · RGB Parade).</td></tr>
+  <tr><td>Right panel</td><td><b>Adjust</b> (Photo / Film), <b>Masks</b>, <b>History</b> (undo list), <b>Advanced</b>.</td></tr>
+  <tr><td>Bottom right</td><td><b>Cancel</b> (<kbd>Esc</kbd>) · <b>Apply</b> (<kbd>Return</kbd>).</td></tr>
+</table>
+<h3>Scopes</h3>
+<ul>
+  <li>Where the R, G and B traces overlap you see yellow, cyan, magenta and white. The white line is luminance.</li>
+  <li>The left and right triangles show the share of crushed shadows and blown highlights. Click them to show the clipped areas on the photo.</li>
+  <li>Hover over the photo to read the R·G·B·L values at that point. You can switch between Linear and Log, and between large and small.</li>
+</ul>
+
+<h2>4. Choosing a film</h2>
+<ul>
+  <li>The thumbnails in the list are rendered from <b>the photo you have open</b>. Click one to apply it instantly.</li>
+  <li><b>Film names</b>: each film is shown with Chiyo Film's own code and a description (for example <b>N101 · Natural portrait</b>). The small grey line underneath (for example “Kodak Portra 400 feel”) only tells you which film served as the reference; Chiyo Film is not affiliated with any film manufacturer. The first letter of the code is the type (N color negative · S slide · M black and white · C cinema film · I instant · X cross process · E experimental), and the first digit is the family.</li>
+  <li><b>By type / By family</b>: <b>By type</b> groups films by how they render color (what they feel like) — Chiyo house, Color negative (gentle tonality, warm skin), Slide (rich color and contrast), B&amp;W, Cinema film, Instant, Cross &amp; Experimental. <b>By family</b> groups films that share the same roots (manufacturing line), such as “Series 1 · American all-round”. Sections can be collapsed, and there is a ‘Collapse all’ button. Type a code, description or reference film name in the search field above (for example portra, natural portrait, N101) to find a film; Korean names work too. The ★ button shows favorites only.</li>
+  <li>Click ☆ to add a film to your favorites. <kbd>↑</kbd><kbd>↓</kbd> step through the films.</li>
+  <li><b>Original (no film)</b> removes the film color and applies only your photo adjustments.</li>
+  <li>Choosing a film also loads that film's <b>grain, halation, bloom and highlight compression</b>, plus its recommended print medium. (For example, C601 · Cool nightscape comes with strong red halation, and high-speed films come with coarse grain.) Add or subtract from those values as you like. A slider's ↺ button or a double-click returns it to the film's value.</li>
+  <li><b>Film exposure (EV)</b> at the bottom left sets the film exposure (formerly “Push / Pull”).</li>
+</ul>
+
+<h2 class="pb">5. Adjust tab ① Photo</h2>
+<p>This is where you refine the photo itself. The order is the same as in Lightroom, and the film receives the photo as you have refined it. Use <b>Photo / Film / All</b> at the top to choose which part is shown.</p>
+<table>
+  <tr><th>Section</th><th>Controls</th></tr>
+  <tr><td>Source</td><td>Exposure EV, Temperature, Tint</td></tr>
+  <tr><td>Basic</td><td>Highlights, Shadows, Whites, Blacks, Texture, Clarity, Dehaze, Vibrance</td></tr>
+  <tr><td>Tone Curve</td><td>All, Red, Green, Blue and <b>Luminance</b> channels (Luminance changes only brightness and leaves hue and saturation alone, so adding contrast doesn't make colors heavier). Click the curve to add a point, drag to adjust, drag it off or double-click to delete. Each channel has a complementary background (red↔cyan, green↔magenta, blue↔yellow). The curve applies to the final result after the film.</td></tr>
+  <tr><td>Color Mixer</td><td>Hue, saturation and luminance for 8 colors: red, orange, yellow, green, aqua, blue, purple, magenta. One color at a time (pick a swatch) or ‘Show all’ (24 sliders)</td></tr>
+  <tr><td>Color Grading</td><td>Shadows, midtones, highlights and global color wheels with luminance, Blending and Balance. Click a wheel or drag its point; hold <kbd>⇧</kbd> while dragging for fine control; double-click to reset</td></tr>
+  <tr><td>Precision Color</td><td>Lift, Gamma, Gain and Offset color wheels (darks, midtones, brights, overall) with luminance. Five curves: Hue vs Hue, Hue vs Sat, Hue vs Lum, Lum vs Sat, Sat vs Sat (add points, drag, double-click to delete, or use the Eyedropper to place a point on a color in the photo)</td></tr>
+  <tr><td>Skin Tone</td><td>All skin, Face skin and Body skin tabs; a reference color (Auto or Eyedropper); <b>Uniformity</b> (pulls skin colors toward the reference color to even out red or yellowish patches); Temperature, Tint, Saturation and Luminance. Open ‘Range’ to drag the range of colors to select (handles) and the reference point (center dot) on a color wheel, Show selection, and Smoothness</td></tr>
+  <tr><td>Detail</td><td>Sharpening; luminance and color noise reduction (detail, contrast, smoothness)</td></tr>
+  <tr><td>Skin Retouch</td><td>Automatically finds the face, eyes, eyebrows and lips and works on skin only: <b>Blemish removal</b> (dark spots, milia, red spots, brown marks — moles are kept unless you turn on ‘Remove moles too’; Protect brush), <b>Dark circles</b>, <b>Even skin</b> (+ texture), <b>Contouring</b>, Include neck, and Size. Pores, natural sheen, light and shadow, and edges (hair, background) are left untouched</td></tr>
+  <tr><td>Lens Corrections</td><td>Distortion (barrel/pincushion, edges filled automatically), Vignetting with midpoint, Defringe</td></tr>
+</table>
+<figure><img src="../img/02-grading.png" alt="Color Grading"><figcaption>Color Grading in the ‘Single’ view</figcaption></figure>
+<figure><img src="../img/07-face-retouch.jpg" alt="Skin Retouch"><figcaption>Skin Retouch: every slider starts at 0. Blemish removal around 40–60 and Even skin around 30–50 look natural</figcaption></figure>
+<figure><img src="../img/06-skin-tone.jpg" alt="Skin Tone"><figcaption>Skin Tone: Uniformity with Temperature, Tint, Saturation and Luminance, and the ‘Range’ color wheel below</figcaption></figure>
+<div class="tip"><b>Speed Edit:</b> hold <kbd>Q</kbd> Exposure · <kbd>W</kbd> Contrast · <kbd>E</kbd> Saturation · <kbd>A</kbd> Highlights · <kbd>D</kbd> Shadows · <kbd>T</kbd> Temperature and scroll or drag sideways to adjust without hunting for the slider (<kbd>⇧</kbd> for fine steps).</div>
+<div class="tip">In each section header, the 👁 button turns the section off briefly for comparison, ↺ resets it and ? opens help. Sections you have changed get an orange dot.</div>
+
+<h2 class="pb">6. Adjust tab ② Film</h2>
+<table>
+  <tr><th>Section</th><th>What it does</th></tr>
+  <tr><td>Color science</td><td><b>Spectral</b> (new default) · <b>Classic</b> (the method before 1.6.0). See ‘Spectral color science’ below</td></tr>
+  <tr><td>Print medium</td><td>Lab scan (color and B&amp;W), Slide scan, photo papers (Glossy · Matte · Warm Silver), measured print film and paper models (P101 · P102 · P201), Chiyo Baryta, Chiyo Log and more</td></tr>
+  <tr><td>Film</td><td>Overall amount (how much film look), Film strength, Film aging (expired film) and its color shift, Protect skin tones, <b>Film format</b> (half frame · 35mm · 6×4.5 · 6×6 · 6×7 · 6×9 · 4×5 — the larger the format, the finer the grain and the smaller the glow)</td></tr>
+  <tr><td>Development · Compression · Levels</td><td>Development contrast, saturation, Base fog, Development gamma, color separation, Color boost, <b>Push/Pull</b> (stops), <b>Bleach bypass · Negative (creative)</b> / Highlight compression / black and white points</td></tr>
+  <tr><td>Print</td><td>Print contrast, exposure and saturation; shadow, midtone and highlight toning and tint; CMY filters; <b>Printer points</b> R·G·B·Gang (1 point = 1/12 stop); <b>Preflash</b> (+ color); <b>print shadow and highlight shape</b>; print push/pull; <b>Bleach bypass · Print (creative)</b></td></tr>
+  <tr><td>Glow</td><td>Bloom · Halation · Diffusion · Motion · Streak styles. Choosing a style shows only Amount, Range, Spread and Warmth (+ direction and softness); the rest is under ‘Detail’. Active styles are marked with a dot</td></tr>
+  <tr><td>Diffusion Filter</td><td>An in-front-of-the-lens diffusion filter: Black Mist (halo around highlights, blacks stay black) · White Mist (milky veil, pastel) · Glimmer · Cine Bloom. Amount, size and halo warmth. Use Masks › Effects › Diffusion Filter to exclude people or apply it to part of the photo</td></tr>
+  <tr><td>Grain</td><td>Amount, Grain size, color, Film resolution, shadow/midtone/highlight grain. The <b>‘Measured’ grain model</b> sets the grain for each film from the manufacturer's datasheet granularity</td></tr>
+  <tr><td>Optics &amp; Lens Effects</td><td>Edge blur, Veiling flare, Film resolving power, <b>Add chromatic aberration</b> (the color fringes of old lenses), <b>Coma</b> (comet tails on point lights near the edges)</td></tr>
+  <tr><td>Finishing · Light Leak · Damage</td><td>Vignette, light leaks, dust, fibers, scratches and stains</td></tr>
+  <tr><td>Overscan · Print Texture · Date Stamp</td><td>Film edges and sprocket holes (edge print reads like “CHIYO N101 ▶12”), halftone and paper texture, Date Stamp (type the date in one field: 19981113, 98 11 13, 1998.11.13 and so on; calendar, Capture date and Today buttons)</td></tr>
+</table>
+<figure><img src="../img/08-diffusion.jpg" alt="Diffusion Filter"><figcaption>Diffusion Filter: none · Black Mist · White Mist 0.25/0.5/1 · Cine Bloom · Glimmer</figcaption></figure>
+<h3>Spectral color science (1.6.0)</h3>
+<p><b>Color science: Spectral · Classic</b> at the top of Adjust › Film chooses how the film takes in color.</p>
+<ul>
+  <li><b>Spectral</b>: the photo's light is received through the per-layer spectral sensitivities from the film datasheet (including the overlap between layers and interlayer effects). Deep reds and skin come out cleaner and less muddy, and skin looks a little more alive. Colors don't get stronger — they move in a direction closer to real film. Greys and exposure are identical in both modes.</li>
+  <li>When a negative is printed on the measured print media <b>P101 · Print film</b> (Kodak Vision 2383 feel) or <b>P102 · Color paper</b> (Kodak Endura feel), the print colors are computed spectrally too: skies and teals turn a more print-film cyan, and reds become deeper and warmer. Speed is almost unchanged.</li>
+  <li>It applies to 92 color films (54 color negative · 11 cinema · 18 slide · 7 instant color · 2 cross process). Black-and-white and creative films are unchanged.</li>
+  <li>Newly opened photos, choosing a film, built-in looks (including cinema looks), Picks for this photo and look matching all start in <b>Spectral</b>.</li>
+  <li>Edits, presets, snapshots, settings files and Photoshop re-edits saved before 1.6.0 open in <b>Classic</b> and render <b>exactly as before</b>. The status line tells you when this happens, and you can switch to ‘Spectral’ if you like. Presets saved in 1.6.0 remember the mode you chose.</li>
+  <li>Lightroom batch: built-in looks use Spectral; Last edit, My presets and settings JSON files use the mode they were saved with. Quick film settings has a ‘Color science’ menu.</li>
+</ul>
+<div class="tip"><b>Film exposure vs. Push/Pull:</b> ‘Film exposure (EV)’ below the film list on the left changes exposure only (formerly Push / Pull), while Development › ‘Push/Pull’ changes the development time, so contrast and grain change too.</div>
+<div class="tip"><b>To soften the film look:</b> lower Film › Overall amount. <b>If a portrait is too bright:</b> lower Basic › Highlights, or bring Film › Print exposure EV down slightly.</div>
+
+<h2>7. Presets · Built-in looks · Matching a reference photo</h2>
+<h3>Picks for this photo</h3>
+<ul>
+  <li>When you open a photo, the ‘Picks for this photo’ row at the top of the Presets tab automatically suggests 3–5 looks that suit it (the row can be collapsed). Each comes with a thumbnail rendered from your photo and a short reason (for example “Snow scene · Cool light”).</li>
+  <li>The picks weigh the photo's colors (dominant colors, warmth of the light, saturation) and the scene and mood most heavily, add result quality and the looks you use often, and choose looks with different moods. The analysis runs only on this Mac.</li>
+  <li>Click a pick to apply it instantly; ⌘Z undoes it.</li>
+</ul>
+<figure><img src="../img/11-recommend.png" alt="Picks for this photo"><figcaption>Picks for this photo (CC0 photo)</figcaption></figure>
+<h3>Cinema looks (Built-in look › Cinema)</h3>
+<ul>
+  <li>30 looks that follow the mood of a film scene: Classic Cinema 3 · Japanese Cinema 13 · Korean Cinema 6 · World Cinema 11. Each card shows a mood name and a small “feel” line, for example <b>Seaside Sisters in Summer</b> — “Kore-eda Hirokazu · Our Little Sister feel”.</li>
+  <li>Search by director, film or cinematographer (for example Kore-eda, Love Letter, Wong Kar-wai, Parasite, Look Back).</li>
+  <li>Each look is an interpretation: for every film we looked up the publicly available cinematography information (camera, film stock, processing) and measured the colors of actual scenes (black and white levels, color shifts by brightness, signature colors). The looks are not affiliated with or endorsed by the directors or studios, and the app contains no film stills.</li>
+  <li>Letterboxing is chosen separately under Frame &amp; Background › Cinema (CinemaScope 2.39 · Vista 1.85 · Subtitled Scene). A cinema frame crops the photo to that ratio around the center (re-edit with R), and the frame stays when you change the built-in look. Change the subtitle under Text › first line.</li>
+</ul>
+<figure><img src="../img/09-cinema-looks.jpg" alt="Cinema looks"><figcaption>Cinema look examples (CC0 photos) — left original · right look</figcaption></figure>
+<figure><img src="../img/10-cinema-frames.jpg" alt="Cinema frames"><figcaption>CinemaScope 2.39 · Vista 1.85 · Subtitled Scene</figcaption></figure>
+<div class="tip"><b>Match strength:</b> after matching to a reference photo, switching between Natural (keeps your photo's character) · Balanced · Closest (as similar as possible) applies instantly, with no recalculation.</div>
+<figure><img src="../img/03-presets.png" alt="Presets tab"><figcaption>Presets tab: Match look to reference photo, 28 built-in looks</figcaption></figure>
+<ul>
+  <li><b>Built-in look</b> (28): Golden Hour Portrait, City Night Cinema, Vintage Slide, Documentary B&amp;W and more, grouped as Portrait, Landscape &amp; Travel, B&amp;W, Vintage, Cinema and Creative.</li>
+  <li><b>My presets</b>: save the current settings under a name. You can favorite, search, rename, export and import them.</li>
+  <li><b>Match look to reference photo</b>: pick a photo you like and Chiyo Film finds and applies the film and settings closest to its color, tonality and grain.
+    <ul>
+      <li>Match strength: Natural / Balanced / Closest. Changing it after matching applies instantly, with no recalculation.</li>
+      <li>You can choose among 4 candidate films. The reference photo is shown small at the bottom left of the preview.</li>
+      <li>The light and the scene itself (backlight, shallow depth of field and so on) can't be transferred; the color and tonal mood can.</li>
+    </ul>
+  </li>
+  <li><b>Quick adjust</b>: Warmth, Fade, Richness and Texture in one place.</li>
+  <li><b>Copy and paste settings</b>: <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> / <kbd>⇧</kbd><kbd>⌘</kbd><kbd>V</kbd> (<kbd>⌥</kbd><kbd>⇧</kbd><kbd>⌘</kbd><kbd>V</kbd> to include masks). When you reopen the same photo, you can load its previous edit.</li>
+</ul>
+
+<h2 class="pb">8. Masks</h2>
+<p>Masks let you apply different exposure, temperature, contrast, saturation, film effects and more to part of the photo. You can have up to 6 layers.</p>
+<ul>
+  <li><b>Shapes</b>: Radial, Linear, Luminance range, Brush, Color range (pick the color with the eyedropper)</li>
+  <li><b>Automatic</b>: Subject, People, Sky. In Lightroom batch rendering these are recalculated for each photo.</li>
+  <li><b>Combining</b>: within one layer, combine shapes with Add (+) · Subtract (−) · Intersect (∩).</li>
+  <li>Radial and linear masks can be moved by grabbing anywhere in their wide inner area, not just the center dot, and the cursor and handle size change when you hover over a handle.</li>
+  <li><b>Photo adjustments</b>: each layer can have its own Highlights and Shadows, Whites and Blacks, Texture, Clarity, Dehaze, Vibrance, luminance noise reduction and color (a small color wheel + hue and saturation). For example: Dehaze on an automatic Sky mask only, or lower Highlights on a radial mask over a face only.</li>
+  <li>Draw radial and linear masks by dragging on the photo, then use the handles to change position, size, rotation and feather. The brush has size, feather and flow; hold <kbd>⌥</kbd> to erase.</li>
+  <li>The overlay (red tint) hides briefly while you move a slider.</li>
+</ul>
+<div class="tip">Masks stay in place on the photo regardless of cropping and rotation. Changing the crop doesn't move them.</div>
+
+<h2>9. Crop · Rotate · Straighten</h2>
+<ul>
+  <li>Press <kbd>R</kbd> or the Crop button in the bottom bar to enter crop mode. The whole photo is shown with the crop area (rule-of-thirds grid) on top. <kbd>Return</kbd> or ‘Done’ applies it; <kbd>Esc</kbd> or ‘Cancel’ reverts.</li>
+  <li>The cursor tells you what will happen: diagonal arrows at the corners (resize), left-right or up-down arrows on the edges, a hand inside (drag to move the photo), and a rotate arrow outside (drag to rotate the photo). You can also grab the margins above and below the photo or just outside a corner.</li>
+  <li>While rotating, the crop rectangle stays upright on screen and the photo turns underneath it (the same as in Lightroom and Photoshop). A fine grid appears inside the rectangle while you rotate.</li>
+  <li>Ratios: Original, Free, 1:1, 4:5, 5:4, 2:3, 3:2, 16:9, 9:16, 65:24 panorama, 6:7 medium format, plus a portrait/landscape swap.</li>
+  <li>Straighten: turn on the Straighten tool in the bar and draw a line along a horizon (or a vertical post); the photo rotates so that line is level (or plumb). Set the angle directly with the slider (−45° to 45°), or use <b>Auto straighten</b> (<kbd>⇧</kbd><kbd>A</kbd>) to find horizons and building lines. The photo is cropped automatically so no empty corners appear.</li>
+  <li>There are also buttons for 90° rotation and horizontal/vertical flips.</li>
+  <li>Grain size, vignette, glow, film edges and the like are scaled as if the cropped photo had been shot at that size. Saving writes the cropped size.</li>
+  <li>In Photoshop the document changes to the cropped size, but the cropped parts of the original layer are hidden, not deleted (restore them with Image › Reveal All; a single ⌘Z undoes everything).</li>
+  <li>Because crops differ from photo to photo, they are not included in presets, pasted settings or batch rendering by default (choose ‘Include crop’ to apply them too).</li>
+</ul>
+
+<h2>10. Frames · Backgrounds · Multi-photo layouts</h2>
+<figure><img src="../img/04-frames.jpg" alt="Frame examples"><figcaption>Palette Card, 35mm Film Strip, Deckle-Edge Print, Taped Snapshot, Wood Board &amp; Clips, Contact sheet</figcaption></figure>
+<ul>
+  <li><b>Frame &amp; Background</b> is at the very end of the ‘Film’ group in the Adjust tab. It places the finished photo on a larger canvas. The photo itself is unchanged, and no film effects are applied to the margins or background.</li>
+  <li><b>26 preset frames</b> in groups: Basic · Color · Text · Film · Texture. The tiles are drawn with your current photo.</li>
+  <li><b>Colors taken from the photo</b>: a Color Palette that places 3–6 of the photo's colors in the margin (color codes optional), a background painted in a photo color (lighter, darker, complementary, midtone), an Aurora background that blends photo colors, and a Duotone blur in two colors.</li>
+  <li><b>Text</b>: up to two lines in the margin. Type your own text or use the tokens {date} (date stamp → capture date → today, in that order), {film}, {code} and {desc}; the Korean tokens {날짜} {필름} {코드} {설명} work too, and in the English interface {film} and {desc} use the English description. Four fonts (Serif, Sans serif, Typewriter, Handwritten), with size, letter spacing, color, alignment and position. If the text needs more room, the canvas grows to fit.</li>
+  <li><b>Film</b>: 35mm Film Strip, Contact sheet (red grease-pencil marks), torn-paper edges, masking tape or clips, dust and light leaks on the background. ‘Variation’ changes the shapes.</li>
+  <li><b>Texture backgrounds</b>: paper, linen and canvas, plus Fiber paper, Concrete, Coarse linen, Wood grain and Marble.</li>
+  <li>Manual controls: canvas ratio (Margin only, Original, 1:1, 4:5, 3:4, 9:16, 16:9, 2:3, 3:2, A4), margin and bottom margin, position, background, Shadow, Rounded corners and Border. The controls are arranged in collapsible groups.</li>
+  <li>Saving keeps the photo's resolution and enlarges the canvas. Frames are included in presets and batch rendering by default (uncheck ‘Include frame &amp; background’ to leave them out). When applied to several photos, {date} uses each photo's own capture date. In Photoshop only the canvas is enlarged and the original layer is left as is.</li>
+</ul>
+<h3>Multi-Photo Layout (2–4 photos on one canvas)</h3>
+<figure><img src="../img/05-layout.jpg" alt="Multi-Photo Layout"><figcaption>Grid of four (4:5) and a side-by-side layout with a film-strip frame</figcaption></figure>
+<ol>
+  <li><b>File › Create Multi-Photo Layout…</b> (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>L</kbd>). Add 1–3 more photos to the current one and arrange them in a new window. The editor window stays as it is.</li>
+  <li>9 layouts (Side by side, Stacked, large + small, rows or columns of three, Grid of four and more) plus <b>Swipe strip</b> (one photo per panel joined into a strip, Instagram-style). Ratios: Photo ratio, 1:1, 4:5, 9:16, 3:4, 2:3, 3:2, 16:9. Spacing between photos.</li>
+  <li>Edit per cell: Current edit, that photo's previous edit, Last edit, My presets, Built-in look, Original.</li>
+  <li>Drag a photo in the preview to position it, and pinch on the trackpad to scale it. Hold <kbd>⌥</kbd> and drag to another cell, or drag the photo cards below onto each other, to swap places.</li>
+  <li>Frame &amp; Background (background, margins, shadow, color palette, text, film borders and so on) is applied once to the whole layout.</li>
+  <li>Export: long edge 1080–6000 px, JPEG · TIFF 16-bit · PNG · PSD 16-bit. A swipe strip saves both the joined image and one file per panel (name-1, name-2 …).</li>
+</ol>
+
+<h2>11. History · Advanced</h2>
+<ul>
+  <li><b>History</b>: every change is listed; click an entry to go back to that step. <kbd>⌘</kbd><kbd>Z</kbd> / <kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd>.</li>
+  <li><b>Snapshots</b>: save the current state and compare against it.</li>
+  <li><b>Export as .cube</b>: save the colors of the current look as a 3D LUT (65³, sRGB) for use in other software (Premiere, DaVinci Resolve, Final Cut and so on). Effects such as grain, glow and vignette, and masks, are not included.</li>
+  <li><b>Settings file</b>: export and import settings as JSON.</li>
+  <li><b>Create Problem Report File</b>: creates a text file with the version, environment and logs. If something goes wrong, please send this file (no photos are included).</li>
+</ul>
+<h3>언어 · Language</h3>
+<ul>
+  <li>The whole editor (menus, panels, sliders, help, film and look names, dialogs) can be used in English or Korean. By default it follows <b>macOS's preferred languages</b> (English unless Korean comes first).</li>
+  <li>Choose Automatic · 한국어 · English under <b>언어 · Language</b> at the top of the <b>Advanced</b> tab or in the app menu. The change takes effect the next time the editor opens; your current edit stays as is.</li>
+  <li>The <b>Lightroom</b> plug-in follows this setting, or Lightroom's own language if you haven't chosen one. The <b>Photoshop</b> menu command follows Photoshop's language.</li>
+  <li>Film and look search works in both English and Korean (for example “natural portrait”, “portra”, “자연스러운 인물”).</li>
+  <li>Changing the language doesn't change the rendered photos, settings or saved files.</li>
+</ul>
+<figure><img src="../img/12-english-ui.png" alt="English interface"><figcaption>The English interface: 언어 · Language at the top of the Advanced tab</figcaption></figure>
+
+<h2>12. Applying to multiple photos at once</h2>
+<ol>
+  <li><b>File › Apply to Multiple Photos…</b> (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>B</kbd>) or the button in the Advanced tab. Photos are processed right in the editor, without Lightroom.</li>
+  <li>Add photos or folders (drag and drop works). Settings: Current edit · Last edit · My presets · Built-in look.</li>
+  <li>Format: same as the original · TIFF 16-bit · JPEG (quality 92) · PSD. Location: next to the original (<code>name-Chiyo</code>, then -2, -3 … if the name is taken) or a folder you choose. Existing files are never overwritten.</li>
+  <li>Painted masks and crops are left out by default (check ‘Include’ to apply them), and automatic Subject, People and Sky masks are recalculated for each photo.</li>
+  <li>There is a progress bar and a Cancel button. Photos that can't be read are listed with the reason while the rest continue. When it's done, click ‘Show in Finder’.</li>
+</ol>
+
+<h2>13. Lightroom batch rendering</h2>
+<ol>
+  <li>Select several photos and choose <b>File › Plug-in Extras › Chiyo Film: Apply to Selected Photos…</b></li>
+  <li><b>Settings to apply</b>: choose the editor's ‘Last edit’, a Built-in look, My presets, Quick film settings, or a settings JSON file.</li>
+  <li><b>File format</b>: TIFF 16-bit (default) · JPEG (quality 92) · PSD (flattened, 16-bit).</li>
+  <li>By default the results are saved <b>in the same folder as the original</b> as <code>name-Chiyo.tif</code> (then -2, -3 … if the name is taken; nothing is overwritten) and are <b>stacked above the original in the catalog</b> so you see them right away.</li>
+  <li>Painted masks and crops are left out by default (they differ per photo; check ‘Include’ to apply them). Automatic Subject, People and Sky masks are recalculated for each photo.</li>
+</ol>
+
+<h2 class="pb">14. Keyboard shortcuts</h2>
+<table>
+  <tr><th>Action</th><th>Key</th><th>Action</th><th>Key</th></tr>
+  <tr><td>Apply</td><td><kbd>Return</kbd></td><td>Close (cancels while drawing a mask)</td><td><kbd>Esc</kbd></td></tr>
+  <tr><td>Show before (while held)</td><td><kbd>Space</kbd></td><td>Hide both panels</td><td><kbd>F</kbd></td></tr>
+  <tr><td>Fit ↔ 100%</td><td>Double-click photo</td><td>Previous / next film</td><td><kbd>↑</kbd> <kbd>↓</kbd></td></tr>
+  <tr><td>Undo / Redo</td><td><kbd>⌘</kbd><kbd>Z</kbd> / <kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd></td><td>Copy settings</td><td><kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd></td></tr>
+  <tr><td>Paste settings (keep masks)</td><td><kbd>⇧</kbd><kbd>⌘</kbd><kbd>V</kbd></td><td>Paste settings (including masks)</td><td><kbd>⌥</kbd><kbd>⇧</kbd><kbd>⌘</kbd><kbd>V</kbd></td></tr>
+  <tr><td>Mask overlay on/off</td><td><kbd>O</kbd></td><td>Change overlay color</td><td><kbd>⇧</kbd><kbd>O</kbd></td></tr>
+  <tr><td>Brush size</td><td><kbd>[</kbd> <kbd>]</kbd></td><td>Brush feather</td><td><kbd>⇧</kbd><kbd>[</kbd> <kbd>⇧</kbd><kbd>]</kbd></td></tr>
+  <tr><td>Erase with brush</td><td><kbd>⌥</kbd> + paint</td><td>Number field: 1 step / 10 steps</td><td><kbd>↑</kbd><kbd>↓</kbd> / <kbd>⇧</kbd>+<kbd>↑</kbd><kbd>↓</kbd></td></tr>
+  <tr><td>Crop mode</td><td><kbd>R</kbd></td><td>Apply to Multiple Photos</td><td><kbd>⇧</kbd><kbd>⌘</kbd><kbd>B</kbd></td></tr>
+  <tr><td>Create Multi-Photo Layout</td><td><kbd>⇧</kbd><kbd>⌘</kbd><kbd>L</kbd></td><td>Auto straighten (crop mode)</td><td><kbd>⇧</kbd><kbd>A</kbd></td></tr>
+  <tr><td>Speed Edit</td><td><kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd><kbd>A</kbd><kbd>D</kbd><kbd>T</kbd> + scroll/drag</td><td></td><td></td></tr>
+  <tr><td>Reset slider to default</td><td>Double-click name or slider</td><td>Shortcut list</td><td><kbd>?</kbd> or <kbd>⌘</kbd><kbd>/</kbd></td></tr>
+</table>
+
+<h2>15. FAQ · Troubleshooting</h2>
+<h3>I can't see the result in Lightroom</h3>
+<p>When you open a photo through external editing, it is saved only when you click Apply (<kbd>Return</kbd>). Batch rendering adds results to a stack above the original when ‘Add to the Lightroom catalog’ is on. If it was off, bring the files in with File › Import Photos and Videos.</p>
+<h3>Will a PSD open if I chose PSD?</h3>
+<p>Yes. It is saved to the same file as a flat PSD without layers, and Lightroom reads it as is.</p>
+<h3>I get a message about “transparent areas”</h3>
+<p>It means the transparent areas were filled with white when the photo was opened. The result is saved as opaque.</p>
+<h3>Chiyo Film isn't in Photoshop's Plugins menu</h3>
+<p>Run the installer again and restart Photoshop. If it still isn't there, check under <b>Plugins › Manage Plugins</b> that Chiyo Film is enabled.</p>
+<h3>“Unidentified developer” warning</h3>
+<p>Right-click the installer in Finder › Open, or go to System Settings › Privacy &amp; Security › Open Anyway.</p>
+<h3>Will my old edits change color after updating to 1.6.0?</h3>
+<p>No. Edits saved earlier open with ‘Classic’ color science and look exactly as before. To see them with the new method, set Adjust › Film › Color science to ‘Spectral’.</p>
+<h3>Are the film colors identical to real film?</h3>
+<p>The films are expressive models tuned with reference to published characteristic curves, datasheets and scans. A color or grain match with real film is not guaranteed.</p>
+<h3>Film names and trademarks</h3>
+<p>Films are named with Chiyo Film's own codes and descriptions. Real film, manufacturer, director and movie names appear only as a “feel” reference (for example “Kodak Portra 400 feel”, “Kore-eda Hirokazu · Our Little Sister feel”) to describe what a look was modeled on. These names are trademarks or titles of their respective owners; Chiyo Film is not affiliated with, sponsored by or endorsed by any of them.</p>
+<h3>Terms of use</h3>
+<p>This is a free test version for personal, non-commercial use. You may use the resulting photos freely; redistributing the program is not permitted. The full terms, including the warranty disclaimer and limitation of liability, are shown in the installer, in <code>Chiyo Film.app/Contents/Resources/LICENSE.txt</code>, and in LICENSE on the release page. An English translation is provided as <code>LICENSE.en</code>; it is for convenience only, and the Korean text (LICENSE) governs. Keep your original photos backed up separately while using the software.</p>
+<h3>Reporting a problem</h3>
+<p>Create a file with Advanced tab › <b>Create Problem Report File</b> and tell us which photo (format, bit depth, color space) and what you did. Please don't post personal photos in public places.</p>
+
+</body>
+</html>
