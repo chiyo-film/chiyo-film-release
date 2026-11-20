@@ -16,7 +16,7 @@ A film-emulation editor for Mac. Film looks built from real datasheet curves, pl
 
 ## Download
 
-**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.7.0.pkg`
+**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.7.1.pkg`
 
 - macOS 13 or later, Apple Silicon (M1 or later)
 - Lightroom Classic and/or Photoshop 2025 or later (optional — the library and editor work on their own)
@@ -29,7 +29,7 @@ The app follows your Mac's language. To switch: **Advanced › 언어 · Languag
 ## Install
 
 1. Quit Photoshop and Lightroom Classic (save your work first).
-2. Open `ChiyoFilm-1.7.0.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
+2. Open `ChiyoFilm-1.7.1.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
 3. The editor app, the Photoshop plugin and the Lightroom plugin are installed together.
 4. **Once in Lightroom:** Settings › External Editing › Additional External Editor › Choose › `/Applications/Chiyo Film.app`
    - File format **TIFF or PSD**, **16-bit**, colour space as you usually work (ProPhoto RGB or Adobe RGB)
@@ -56,6 +56,7 @@ The app follows your Mac's language. To switch: **Advanced › 언어 · Languag
 - **RAW Development (new):** exposure, white balance, highlight recovery and shadows with macOS's RAW engine, keeping up to 2 stops above white. Sony A7 V · A7R VI open too. RAW+JPG as two photos or one.
 - **Many photos at once (new):** ⌘/⇧-click multi-select, **Sync** (choose parts) and **Auto sync**, copy / paste edits, apply the previous edit, **virtual copies** (⌘'), right-click menus.
 - **Export (new):** presets for web / social, print TIFF, Instagram 4:5, original size and Photoshop PSD; JPEG · HEIC · TIFF · PSD with size estimate, naming templates and a background queue. Right from the editor and loupe (⌘E), or just the picks.
+- **1.7.1:** place the light leak with handles on the photo (like a linear gradient mask), and more natural dust and fibres.
 - **Basic adjustments like Lightroom:** Highlights and Whites recover highlights naturally and sliders respond instantly; auto skin tone stays on the face.
 - **Spectral film colour:** models each film layer's spectral sensitivity and, for print stocks (cinema print 2383, paper), the dyes printing onto each other. Reds and skin come out cleaner and less muddy; cinema print skies turn teal on their own. New edits use it by default; edits saved earlier open unchanged (Adjust › Film › Color science).
 - **English interface**
@@ -93,7 +94,7 @@ Create a report with **Advanced › Create Problem Report File…** and attach i
 ## Uninstall
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.7.0/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/1.7.1/uninstall.sh"
 ```
 
 Your presets and favourites (`~/Library/Application Support/Chiyo Film`) are kept.
