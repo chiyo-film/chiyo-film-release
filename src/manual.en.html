@@ -33,16 +33,18 @@
 <body>
 
 <section class="cover">
-  <h1>Chiyo Film 1.0</h1>
+  <h1>Chiyo Film 1.7</h1>
   <div class="sub">A Mac editor that gives your photos the color and grain of real film · User Manual</div>
   <img src="../img/01-editor.png" alt="Chiyo Film editor">
-  <div class="meta">Version 1.6.0 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
+  <div class="meta">Version 1.7.0 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
 </section>
 
 <h2>Contents</h2>
 <ol class="toc">
   <li>Installation</li>
   <li>Opening photos (Lightroom · Photoshop · standalone)</li>
+  <li>Photo library (culling · RAW Development · sync · virtual copies)</li>
+  <li>Export</li>
   <li>The editor window</li>
   <li>Choosing a film</li>
   <li>Adjust tab ① Photo</li>
@@ -87,7 +89,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>Choose “Edit a Copy with Lightroom Adjustments” and click <b>Edit</b>.</li>
   <li>Make your edits, then click <b>Apply</b> (<kbd>Return</kbd>). The copy is saved and appears right next to the original in Lightroom.</li>
 </ol>
-<div class="tip"><b>Tip — RAW photos:</b> Finish the basic corrections (exposure, white balance and so on) in Lightroom first, then add the film look in Chiyo Film. Color comes out best on photos that are already developed, such as JPEG and TIFF.</div>
+<div class="tip"><b>Tip — RAW photos:</b> If you use Lightroom, you can still set exposure and white balance there first and send the photo over. Without Lightroom, open RAW files in the photo library (chapter 3) and start with RAW Development.</div>
 
 <h3>Photoshop</h3>
 <ol>
@@ -100,7 +102,66 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <h3>Opening on its own</h3>
 <p>Drag a JPEG, TIFF or PSD file onto <code>Chiyo Film.app</code> to open it. Applying saves to the same file. Photos with transparent areas are opened over a white background.</p>
 
-<h2 class="pb">3. The editor window</h2>
+<h2 class="pb">3. Photo library (new in 1.7)</h2>
+<p>Without Lightroom you can open a folder, cull, develop RAW, finish like film and export. There is no catalogue: edits and ratings save automatically in a <code>name.ext.chiyo</code> file next to each photo. The original files are never changed.</p>
+<figure><img src="../img/13-library-en.jpg" alt="Library grid"><figcaption>Left: recent folders · folders · smart collections · centre: grid · right: histogram · capture info · rating · applied look · picks · auto analysis</figcaption></figure>
+<h3>Opening a folder</h3>
+<ol>
+  <li>Open <code>Chiyo Film.app</code> to see the start screen. Click <b>Open Folder</b> (<kbd>⌘</kbd><kbd>O</kbd>) or drop a folder on the window. Subfolders are read too.</li>
+  <li>Switch views with the tabs at the top: <b>Grid</b> (<kbd>G</kbd>) · <b>Loupe</b> (<kbd>E</kbd>, one large photo) · <b>Compare</b> (<kbd>C</kbd>, 2 or 4) · <b>Auto Cull</b> · <b>Edit</b> (<kbd>Enter</kbd>).</li>
+  <li>The grid is split by capture date; the slider at the bottom sets the thumbnail size and the top right sets the order (capture time · file name · rating).</li>
+</ol>
+<h3>Culling (ratings · flags · colour labels)</h3>
+<table>
+  <tr><th>Key</th><th>Action</th><th>Key</th><th>Action</th></tr>
+  <tr><td><kbd>1</kbd>–<kbd>5</kbd> / <kbd>0</kbd></td><td>Rating / clear</td><td><kbd>P</kbd> · <kbd>H</kbd> · <kbd>X</kbd> · <kbd>U</kbd></td><td>Pick · Hold · Reject · Unflag</td></tr>
+  <tr><td><kbd>6</kbd>–<kbd>9</kbd>, <kbd>⇧</kbd><kbd>6</kbd></td><td>Colour label (red · yellow · green · blue · purple)</td><td><kbd>←</kbd> <kbd>→</kbd></td><td>Previous · next photo</td></tr>
+  <tr><td><kbd>Space</kbd></td><td>Fit ↔ 100%</td><td><kbd>R</kbd></td><td>View the RAW decode</td></tr>
+  <tr><td><kbd>⌘</kbd><kbd>Z</kbd></td><td>Undo culling</td><td><kbd>?</kbd></td><td>All shortcuts</td></tr>
+</table>
+<p>With <b>Auto advance</b> on, flagging moves to the next photo (<kbd>⇧</kbd>+<kbd>P</kbd>/<kbd>X</kbd> does the opposite). RAW ratings and labels also go to <code>.xmp</code> so Lightroom and Bridge can read them.</p>
+<figure><img src="../img/14-loupe.jpg" alt="Loupe"><figcaption>Loupe: capture info, filmstrip, key hints and ‘Export N picks…’ at the bottom right</figcaption></figure>
+<h3>Selecting several · filters · smart collections</h3>
+<ul>
+  <li>Click selects one, <kbd>⌘</kbd>-click adds or removes, <kbd>⇧</kbd>-click selects a range, <kbd>⌘</kbd><kbd>A</kbd> selects all — in the grid, the loupe and the editor's filmstrip.</li>
+  <li>Filter bar: rating · flag · colour label · edited / unedited · file type · blurry · eyes closed · out of focus · burst · best. The search field finds file names and tags.</li>
+  <li><b>Smart collections</b> on the left: Edited · 4 stars & up · Picks · Possibly blurry · Eyes closed · Burst groups.</li>
+</ul>
+<h3>Auto-cull help</h3>
+<p>After a folder opens, photos are analysed in the background: <b>bursts are grouped with a suggested best shot</b>, and blur, missed focus, closed eyes and exposure are flagged. In the <b>Auto Cull</b> tab, per group: <kbd>A</kbd> accept · <kbd>S</kbd> skip · <kbd>B</kbd> make this the best. Suggestions never change flags you set yourself.</p>
+<h3>RAW Development</h3>
+<ul>
+  <li>RAW photos get a <b>RAW Development</b> section under <b>Basic</b> (exposure · white balance · highlight recovery · shadows · noise…). macOS's RAW engine develops them, keeping up to about 2 stops above white so Highlights and Whites can bring back blown skies.</li>
+  <li>RAW opens at screen size first and the full resolution follows. Hold <kbd>Space</kbd> to see the photo before editing (including RAW Development).</li>
+  <li>Sony A7 V · A7R VI Compressed RAW 2 is converted once in the background to a DNG with the bundled LibRaw (the original stays untouched).</li>
+  <li>RAW+JPG pairs show as two photos by default; Library Settings can group them as one. Grouped, <b>RAW · JPG</b> at the top of the editor picks which file you edit (each keeps its own edit).</li>
+</ul>
+<h3>Right-click menus</h3>
+<ul>
+  <li><b>Photos</b>: Open in Editor · View in Loupe · Compare side by side · flags · rating · colour label · Create virtual copy · Sync edit · Apply previous edit · Apply look · Copy / Paste edit · Clear edit · Export · Copy / move originals · Select (all · none · invert · picks · edited) · Show in Finder · Copy file name. Right-clicking a photo outside the selection acts on it alone.</li>
+  <li><b>Folders</b>: Show only this folder · Select all · Export this folder · Reload · Show in Finder · Copy path · Remove from recent folders. <b>Smart collections</b>: Show · Select all · Export these photos.</li>
+</ul>
+<h3>Same edit on many photos (sync · virtual copies)</h3>
+<figure><img src="../img/15-editor-sync.jpg" alt="Sync in the editor"><figcaption>Select several photos in the editor's filmstrip: ‘N selected · Sync… · Auto sync’ appears at the bottom left</figcaption></figure>
+<ul>
+  <li><b>Sync…</b>: matches the other selected photos to this edit. Choose the parts (photo · skin · RAW Development · film and effects · crop · masks); by default everything except crop and masks.</li>
+  <li><b>Auto sync</b>: while on, every slider you move here goes onto all selected photos at once.</li>
+  <li><b>Copy / Paste edit</b> and <b>Apply previous edit</b> (the edit of the photo you just worked on): each photo keeps its own crop, masks and face regions.</li>
+  <li><b>Virtual copy</b> (<kbd>⌘</kbd><kbd>'</kbd>): another edit of the same photo without duplicating the file. It shows with a ‘Copy 1’ badge, has its own rating, flag and edit, and exports with a name like <code>DSC09158-Copy1</code>.</li>
+</ul>
+
+<h2>4. Export</h2>
+<ol>
+  <li>Press <kbd>⌘</kbd><kbd>E</kbd> or <b>Export…</b> in the grid, loupe or editor. In the editor the sheet opens over the editor (bottom: ‘Reset · Export… · Done’).</li>
+  <li>Choose the scope at the top: <b>Selected · Picks · All shown</b>. ‘Export N picks…’ under the loupe sends the photos flagged Pick right away.</li>
+  <li><b>What are the photos for?</b> Web / social JPEG · Print TIFF 16-bit · Instagram 4:5 · Original size · To Photoshop (PSD), plus ‘Save current settings as preset’.</li>
+  <li>Format (JPEG · HEIC · TIFF · PSD), size (long edge · short edge · % · original, never enlarging small photos), destination (default: a ‘Chiyo 내보내기’ folder inside the photo's folder).</li>
+  <li><b>Details</b>: quality (with estimated size per photo and in total) · colour space · output sharpening · include frame / date stamp · metadata · file name template · subfolders · name conflicts.</li>
+  <li>Exports run in a background queue (pause, cancel) and are saved as <b>separate files</b>; originals stay as they are.</li>
+  <li><b>Copy / move originals</b> tab: copies or moves the files as they are (with RAW+JPG pairs, <code>.chiyo</code> and <code>.xmp</code>) for delivery or backup.</li>
+</ol>
+
+<h2 class="pb">5. The editor window</h2>
 <figure><img src="../img/01-editor.png" alt="The editor window"><figcaption>Left: film list · Center: preview · Right: Adjust / Masks / History / Advanced tabs</figcaption></figure>
 <table>
   <tr><th>Area</th><th>What it holds</th></tr>
@@ -116,7 +177,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>Hover over the photo to read the R·G·B·L values at that point. You can switch between Linear and Log, and between large and small.</li>
 </ul>
 
-<h2>4. Choosing a film</h2>
+<h2>6. Choosing a film</h2>
 <ul>
   <li>The thumbnails in the list are rendered from <b>the photo you have open</b>. Click one to apply it instantly.</li>
   <li><b>Film names</b>: each film is shown with Chiyo Film's own code and a description (for example <b>N101 · Natural portrait</b>). The small grey line underneath (for example “Kodak Portra 400 feel”) only tells you which film served as the reference; Chiyo Film is not affiliated with any film manufacturer. The first letter of the code is the type (N color negative · S slide · M black and white · C cinema film · I instant · X cross process · E experimental), and the first digit is the family.</li>
@@ -127,7 +188,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li><b>Film exposure (EV)</b> at the bottom left sets the film exposure (formerly “Push / Pull”).</li>
 </ul>
 
-<h2 class="pb">5. Adjust tab ① Photo</h2>
+<h2 class="pb">7. Adjust tab ① Photo</h2>
 <p>This is where you refine the photo itself. The order is the same as in Lightroom, and the film receives the photo as you have refined it. Use <b>Photo / Film / All</b> at the top to choose which part is shown.</p>
 <table>
   <tr><th>Section</th><th>Controls</th></tr>
@@ -148,7 +209,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <div class="tip"><b>Speed Edit:</b> hold <kbd>Q</kbd> Exposure · <kbd>W</kbd> Contrast · <kbd>E</kbd> Saturation · <kbd>A</kbd> Highlights · <kbd>D</kbd> Shadows · <kbd>T</kbd> Temperature and scroll or drag sideways to adjust without hunting for the slider (<kbd>⇧</kbd> for fine steps).</div>
 <div class="tip">In each section header, the 👁 button turns the section off briefly for comparison, ↺ resets it and ? opens help. Sections you have changed get an orange dot.</div>
 
-<h2 class="pb">6. Adjust tab ② Film</h2>
+<h2 class="pb">8. Adjust tab ② Film</h2>
 <table>
   <tr><th>Section</th><th>What it does</th></tr>
   <tr><td>Color science</td><td><b>Spectral</b> (new default) · <b>Classic</b> (the method before 1.6.0). See ‘Spectral color science’ below</td></tr>
@@ -177,7 +238,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <div class="tip"><b>Film exposure vs. Push/Pull:</b> ‘Film exposure (EV)’ below the film list on the left changes exposure only (formerly Push / Pull), while Development › ‘Push/Pull’ changes the development time, so contrast and grain change too.</div>
 <div class="tip"><b>To soften the film look:</b> lower Film › Overall amount. <b>If a portrait is too bright:</b> lower Basic › Highlights, or bring Film › Print exposure EV down slightly.</div>
 
-<h2>7. Presets · Built-in looks · Matching a reference photo</h2>
+<h2>9. Presets · Built-in looks · Matching a reference photo</h2>
 <h3>Picks for this photo</h3>
 <ul>
   <li>When you open a photo, the ‘Picks for this photo’ row at the top of the Presets tab automatically suggests 3–5 looks that suit it (the row can be collapsed). Each comes with a thumbnail rendered from your photo and a short reason (for example “Snow scene · Cool light”).</li>
@@ -210,7 +271,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li><b>Copy and paste settings</b>: <kbd>⇧</kbd><kbd>⌘</kbd><kbd>C</kbd> / <kbd>⇧</kbd><kbd>⌘</kbd><kbd>V</kbd> (<kbd>⌥</kbd><kbd>⇧</kbd><kbd>⌘</kbd><kbd>V</kbd> to include masks). When you reopen the same photo, you can load its previous edit.</li>
 </ul>
 
-<h2 class="pb">8. Masks</h2>
+<h2 class="pb">10. Masks</h2>
 <p>Masks let you apply different exposure, temperature, contrast, saturation, film effects and more to part of the photo. You can have up to 6 layers.</p>
 <ul>
   <li><b>Shapes</b>: Radial, Linear, Luminance range, Brush, Color range (pick the color with the eyedropper)</li>
@@ -223,7 +284,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 </ul>
 <div class="tip">Masks stay in place on the photo regardless of cropping and rotation. Changing the crop doesn't move them.</div>
 
-<h2>9. Crop · Rotate · Straighten</h2>
+<h2>11. Crop · Rotate · Straighten</h2>
 <ul>
   <li>Press <kbd>R</kbd> or the Crop button in the bottom bar to enter crop mode. The whole photo is shown with the crop area (rule-of-thirds grid) on top. <kbd>Return</kbd> or ‘Done’ applies it; <kbd>Esc</kbd> or ‘Cancel’ reverts.</li>
   <li>The cursor tells you what will happen: diagonal arrows at the corners (resize), left-right or up-down arrows on the edges, a hand inside (drag to move the photo), and a rotate arrow outside (drag to rotate the photo). You can also grab the margins above and below the photo or just outside a corner.</li>
@@ -236,7 +297,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>Because crops differ from photo to photo, they are not included in presets, pasted settings or batch rendering by default (choose ‘Include crop’ to apply them too).</li>
 </ul>
 
-<h2>10. Frames · Backgrounds · Multi-photo layouts</h2>
+<h2>12. Frames · Backgrounds · Multi-photo layouts</h2>
 <figure><img src="../img/04-frames.jpg" alt="Frame examples"><figcaption>Palette Card, 35mm Film Strip, Deckle-Edge Print, Taped Snapshot, Wood Board &amp; Clips, Contact sheet</figcaption></figure>
 <ul>
   <li><b>Frame &amp; Background</b> is at the very end of the ‘Film’ group in the Adjust tab. It places the finished photo on a larger canvas. The photo itself is unchanged, and no film effects are applied to the margins or background.</li>
@@ -259,7 +320,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>Export: long edge 1080–6000 px, JPEG · TIFF 16-bit · PNG · PSD 16-bit. A swipe strip saves both the joined image and one file per panel (name-1, name-2 …).</li>
 </ol>
 
-<h2>11. History · Advanced</h2>
+<h2>13. History · Advanced</h2>
 <ul>
   <li><b>History</b>: every change is listed; click an entry to go back to that step. <kbd>⌘</kbd><kbd>Z</kbd> / <kbd>⇧</kbd><kbd>⌘</kbd><kbd>Z</kbd>.</li>
   <li><b>Snapshots</b>: save the current state and compare against it.</li>
@@ -277,7 +338,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 </ul>
 <figure><img src="../img/12-english-ui.png" alt="English interface"><figcaption>The English interface: 언어 · Language at the top of the Advanced tab</figcaption></figure>
 
-<h2>12. Applying to multiple photos at once</h2>
+<h2>14. Applying to multiple photos at once</h2>
 <ol>
   <li><b>File › Apply to Multiple Photos…</b> (<kbd>⇧</kbd><kbd>⌘</kbd><kbd>B</kbd>) or the button in the Advanced tab. Photos are processed right in the editor, without Lightroom.</li>
   <li>Add photos or folders (drag and drop works). Settings: Current edit · Last edit · My presets · Built-in look.</li>
@@ -286,7 +347,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>There is a progress bar and a Cancel button. Photos that can't be read are listed with the reason while the rest continue. When it's done, click ‘Show in Finder’.</li>
 </ol>
 
-<h2>13. Lightroom batch rendering</h2>
+<h2>15. Lightroom batch rendering</h2>
 <ol>
   <li>Select several photos and choose <b>File › Plug-in Extras › Chiyo Film: Apply to Selected Photos…</b></li>
   <li><b>Settings to apply</b>: choose the editor's ‘Last edit’, a Built-in look, My presets, Quick film settings, or a settings JSON file.</li>
@@ -295,7 +356,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>Painted masks and crops are left out by default (they differ per photo; check ‘Include’ to apply them). Automatic Subject, People and Sky masks are recalculated for each photo.</li>
 </ol>
 
-<h2 class="pb">14. Keyboard shortcuts</h2>
+<h2 class="pb">16. Keyboard shortcuts</h2>
 <table>
   <tr><th>Action</th><th>Key</th><th>Action</th><th>Key</th></tr>
   <tr><td>Apply</td><td><kbd>Return</kbd></td><td>Close (cancels while drawing a mask)</td><td><kbd>Esc</kbd></td></tr>
@@ -310,9 +371,12 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <tr><td>Create Multi-Photo Layout</td><td><kbd>⇧</kbd><kbd>⌘</kbd><kbd>L</kbd></td><td>Auto straighten (crop mode)</td><td><kbd>⇧</kbd><kbd>A</kbd></td></tr>
   <tr><td>Speed Edit</td><td><kbd>Q</kbd><kbd>W</kbd><kbd>E</kbd><kbd>A</kbd><kbd>D</kbd><kbd>T</kbd> + scroll/drag</td><td></td><td></td></tr>
   <tr><td>Reset slider to default</td><td>Double-click name or slider</td><td>Shortcut list</td><td><kbd>?</kbd> or <kbd>⌘</kbd><kbd>/</kbd></td></tr>
+  <tr><td>Library: Open folder</td><td><kbd>⌘</kbd><kbd>O</kbd></td><td>Library: Export</td><td><kbd>⌘</kbd><kbd>E</kbd></td></tr>
+  <tr><td>Library: Grid · Loupe · Compare</td><td><kbd>G</kbd> · <kbd>E</kbd> · <kbd>C</kbd></td><td>Library: Virtual copy</td><td><kbd>⌘</kbd><kbd>'</kbd></td></tr>
+  <tr><td>Library: Rating · flags</td><td><kbd>1</kbd>–<kbd>5</kbd> · <kbd>P</kbd> <kbd>H</kbd> <kbd>X</kbd></td><td>Library: Go to (number · file name)</td><td><kbd>⌘</kbd><kbd>J</kbd></td></tr>
 </table>
 
-<h2>15. FAQ · Troubleshooting</h2>
+<h2>17. FAQ · Troubleshooting</h2>
 <h3>I can't see the result in Lightroom</h3>
 <p>When you open a photo through external editing, it is saved only when you click Apply (<kbd>Return</kbd>). Batch rendering adds results to a stack above the original when ‘Add to the Lightroom catalog’ is on. If it was off, bring the files in with File › Import Photos and Videos.</p>
 <h3>Will a PSD open if I chose PSD?</h3>

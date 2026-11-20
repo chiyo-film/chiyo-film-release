@@ -2,29 +2,32 @@
 
 **[English](README.en.md)** · 한국어
 
-**무료 · Lightroom Classic / Photoshop에서 바로 · 필름 룩 154종**
+**무료 · 사진 정리부터 RAW 현상·필름 룩·내보내기까지 한 앱에서 · Lightroom Classic / Photoshop에서도 · 필름 룩 154종**
 
-사진에 실제 필름의 색과 입자를 입히는 Mac 편집기. 필름 룩에 사진 보정, 얼굴 피부 보정, 액자까지 한 앱에서.
+사진에 실제 필름의 색과 입자를 입히는 Mac 편집기. 1.7부터는 폴더를 열어 고르고(셀렉), RAW를 현상하고, 필름처럼 다듬어 내보내는 **사진 라이브러리**로도 혼자 쓸 수 있어요.
 
 ![보정 전후: N102 따뜻한 스냅 · S102 고전 슬라이드 · C601 차가운 야경 · N101 자연스러운 인물 · N104 부드러운 인물 · M301 클래식 흑백](img/00-before-after.jpg)
 
 <sub>각 사진의 왼쪽은 원본, 오른쪽은 Chiyo Film(필름 + 노출·색온도·그레인·할레이션 조정). 예시 사진은 Wikimedia Commons의 CC0(퍼블릭 도메인) 사진입니다.</sub>
 
+![Chiyo Film 라이브러리](img/13-library.jpg)
+
 ![Chiyo Film 편집기](img/01-editor.png)
 
 ## 다운로드
 
-**[최신 버전 받기 (Releases)](../../releases/latest)** → `ChiyoFilm-1.6.0.pkg`
+**[최신 버전 받기 (Releases)](../../releases/latest)** → `ChiyoFilm-1.7.0.pkg`
 
 - macOS 13 이상, Apple Silicon (M1 이상)
-- Lightroom Classic, Photoshop 2025 이상 (둘 중 쓰는 것만 있으면 됩니다. 편집기만 단독으로도 쓸 수 있어요)
+- Lightroom Classic, Photoshop 2025 이상은 선택 (없어도 라이브러리·편집기로 단독 사용)
+- RAW: macOS가 지원하는 카메라, 그리고 Sony A7 V · A7R VI의 Compressed RAW 2(앱에 포함된 LibRaw로 현상, Adobe DNG Converter 필요 없음)
 - 사용 설명서: **[ChiyoFilm-Manual.pdf](ChiyoFilm-Manual.pdf)**
 - 이용약관: **[LICENSE](LICENSE)** — 무료 테스트판(개인적·비상업적 사용), 재배포 금지, 결과 사진은 자유롭게 사용. 설치할 때 동의 화면이 나옵니다.
 
 ## 설치
 
 1. Photoshop과 Lightroom Classic을 종료합니다 (작업 중인 문서는 먼저 저장).
-2. `ChiyoFilm-1.6.0.pkg`를 엽니다. “확인되지 않은 개발자” 경고가 나오면 Finder에서 **우클릭 › 열기**, 또는 **시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기**.
+2. `ChiyoFilm-1.7.0.pkg`를 엽니다. “확인되지 않은 개발자” 경고가 나오면 Finder에서 **우클릭 › 열기**, 또는 **시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기**.
 3. 편집기 앱, Photoshop 플러그인, Lightroom 플러그인이 한 번에 설치됩니다.
 4. **Lightroom에서 한 번만:** 환경 설정 › 외부 편집 › 추가 외부 편집기 › 선택 › `/Applications/Chiyo Film.app`
    - 파일 형식 **TIFF 또는 PSD**, **16비트**, 색상 공간은 평소 쓰는 것과 같게 (ProPhoto RGB 또는 Adobe RGB)
@@ -37,16 +40,23 @@
 | Lightroom Classic | 사진 우클릭 › 편집 › **Chiyo Film** (⌥⌘E) → 보정 후 **적용** (Return) → 원본 옆에 바로 나타남 |
 | Lightroom 여러 장 | 파일 › 플러그인 추가 기능 › **Chiyo Film: 선택한 사진에 일괄 적용…** (TIFF / JPEG / PSD, 카탈로그에 자동 추가) |
 | Photoshop | 플러그인 › Chiyo Film › **Chiyo Film 편집기 열기** → 적용하면 새 레이어로 들어옴 |
-| 단독 | JPEG · TIFF · PSD 파일을 `Chiyo Film.app`에 끌어다 놓기 |
+| **사진 라이브러리 (새)** | `Chiyo Film.app`을 열고 폴더 열기(⌘O) → 그리드·루페에서 별점·깃발(1–5 · P · X) → Enter로 편집 → ⌘E 내보내기 |
+| 단독 | JPEG · TIFF · PSD · RAW 파일을 `Chiyo Film.app`에 끌어다 놓기 |
 | 편집기에서 여러 장 | 파일 › **여러 사진에 적용…** (⇧⌘B) |
 | 한 화면에 2–4장 | 파일 › **여러 장 배치 만들기…** (⇧⌘L) |
 
-> **팁:** RAW는 Lightroom에서 노출·화이트밸런스 등 1차 보정을 끝낸 뒤 Chiyo Film에서 필름 룩을 입히세요. 이미 현상된 사진에서 색이 가장 잘 나옵니다.
+> **팁:** RAW는 라이브러리에서 바로 열어 **RAW 현상**(노출·화이트밸런스·하이라이트 복구)부터 하세요. Lightroom을 쓰신다면 지금처럼 Lightroom에서 현상한 뒤 Chiyo Film으로 보내도 됩니다.
 
-## 주요 기능 (1.6)
+## 주요 기능 (1.7)
 
-- **스펙트럼 색 계산 (새)**: 필름 층의 분광 감도와 인화 염료까지 계산해 빨강·피부가 덜 탁하고 맑게. 새 편집부터 기본이고 예전 편집은 그대로(조정 › 필름 맨 위 ‘색 계산’)
-- **영어 화면 (새)**: 맥 언어를 따라가고 고급 탭에서 바꿀 수 있음
+- **사진 라이브러리 (새)**: 폴더를 열면 그리드 · 루페 · 비교 · 자동 셀렉. 별점·깃발·색상 라벨을 키보드로(1–5 · P · H · X · 6–9), 필터와 스마트 모음(보정한 사진, 별 4개 이상, 흔들림·눈 감음 의심, 연사). 보정은 사진 옆 `.chiyo` 파일에 자동 저장(카탈로그 없음), RAW의 별점·라벨은 `.xmp`로도 써서 Lightroom·Bridge와 주고받음
+- **자동 셀렉 도움 (새)**: 연사 묶기와 베스트 컷 제안, 흔들림·초점 나감·눈 감음·노출 표시
+- **RAW 현상 (새)**: macOS RAW 엔진으로 노출·화이트밸런스·하이라이트 복구·그림자, 화이트 위 빛까지 살리는 관용도. Sony A7 V · A7R VI도 바로 열림. RAW+JPG를 두 장 또는 한 장으로
+- **여러 장 한꺼번에 (새)**: ⌘·⇧ 클릭 복수 선택, 보정 **동기화**(항목 고르기)와 **자동 동기화**, 보정 복사·붙여넣기, 이전 사진 보정 적용, **가상 사본**(⌘'), 오른쪽 클릭 메뉴
+- **내보내기 (새)**: 웹·SNS · 인쇄 TIFF · 인스타그램 4:5 · 원본 크기 · Photoshop용 PSD 프리셋, JPEG·HEIC·TIFF·PSD, 예상 용량, 이름 템플릿, 백그라운드 대기열. 편집 화면과 루페에서 바로(⌘E), 깃발 고른 사진만 한 번에
+- **Lightroom처럼 바뀐 기본 보정**: 밝은 영역·흰색 계열이 하이라이트를 자연스럽게 되살리고, 슬라이더가 바로 반응. 피부톤 자동 맞춤은 얼굴에만
+- **스펙트럼 색 계산**: 필름 층의 분광 감도와 인화 염료까지 계산해 빨강·피부가 덜 탁하고 맑게. 새 편집부터 기본이고 예전 편집은 그대로(조정 › 필름 맨 위 ‘색 계산’)
+- **영어 화면**: 맥 언어를 따라가고 고급 탭에서 바꿀 수 있음
 - **이 사진에 추천**: 사진을 열면 색 조화와 장면·분위기를 보고 어울리는 룩 3–5개를 이유와 함께 추천
 - **영화 룩 30종**: 일본·한국·세계 영화 한 장면의 분위기(고레에다 히로카즈, 이와이 슌지, 왕가위, 박찬욱, 봉준호, 드니 빌뇌브 등 “~ 느낌”). 영화마다 촬영 정보를 찾고 실제 장면의 색을 재서 맞춤
 - **영화 액자 (새)**: 시네마스코프 2.39 · 비스타 1.85 레터박스, 자막 장면
@@ -81,6 +91,10 @@
 
 ![컬러 그레이딩](img/02-grading.png)
 
+![루페](img/14-loupe.jpg)
+
+![여러 장 동기화](img/15-editor-sync.jpg)
+
 ## 변경 내역
 
 각 버전의 변경 내용은 [Releases](../../releases)에 있습니다.
@@ -92,7 +106,7 @@
 ## 제거
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.6.0/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/1.7.0/uninstall.sh"
 ```
 
 프리셋·즐겨찾기(`~/Library/Application Support/Chiyo Film`)는 남습니다.
