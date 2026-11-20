@@ -33,10 +33,10 @@
 <body>
 
 <section class="cover">
-  <h1>Chiyo Film 1.7</h1>
+  <h1>Chiyo Film 1.8</h1>
   <div class="sub">A Mac editor that gives your photos the color and grain of real film · User Manual</div>
   <img src="../img/01-editor.png" alt="Chiyo Film editor">
-  <div class="meta">Version 1.7.1 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
+  <div class="meta">Version 1.8.0 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
 </section>
 
 <h2>Contents</h2>
@@ -148,6 +148,20 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li><b>Auto sync</b>: while on, every slider you move here goes onto all selected photos at once.</li>
   <li><b>Copy / Paste edit</b> and <b>Apply previous edit</b> (the edit of the photo you just worked on): each photo keeps its own crop, masks and face regions.</li>
   <li><b>Virtual copy</b> (<kbd>⌘</kbd><kbd>'</kbd>): another edit of the same photo without duplicating the file. It shows with a ‘Copy 1’ badge, has its own rating, flag and edit, and exports with a name like <code>DSC09158-Copy1</code>.</li>
+</ul>
+
+<h3>Match Set (1.8)</h3>
+<ol>
+  <li>Select 2 or more photos of the same place and day and click <b>Match Set</b> in the library toolbar (or right-click › Match set to this photo…). The current photo is the reference; click another at the top to change it.</li>
+  <li>What to match: <b>Exposure</b> (mid brightness) · <b>White balance</b> (from grey and white areas) · <b>Skin colour</b> (each photo's face measured; face skin only) · <b>Contrast and saturation</b> (off by default) · optionally the reference's <b>film look</b>. <b>Strength</b> from Gently to Exactly.</li>
+  <li>Check each photo's changes (e.g. “−0.1 EV · Temp +0.12 · Skin”) and the before/after previews, then <b>Match N</b>. Values go into Source (Exposure, Temperature, Tint), development contrast and vibrance, and Skin Tone (face skin) for later tweaking; <kbd>⌘</kbd><kbd>Z</kbd> undoes it all in one step.</li>
+  <li>Photos without enough grey or white skip white balance, and photos without a face skip skin, and say so. Very different scenes are better left unmatched.</li>
+</ol>
+<h3>RAW Development › Profile · chromatic aberration (1.8)</h3>
+<ul>
+  <li><b>Like the camera JPEG</b>: the camera's own JPEG brightness and colour (skin included), learned once per camera model from the JPEG inside its RAWs (up to 5 RAWs of that model spread over the folder; a few seconds the first time). The same for every brand.</li>
+  <li><b>Auto chromatic aberration</b>: red/cyan and blue/yellow edge fringes measured on the photo itself and corrected — no lens data needed (manual and adapted lenses too); remembered. Off by default.</li>
+  <li>New cameras macOS can't open yet use the built-in converter (Fujifilm X-Trans included).</li>
 </ul>
 
 <h2>4. Export</h2>

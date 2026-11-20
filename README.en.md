@@ -16,7 +16,7 @@ A film-emulation editor for Mac. Film looks built from real datasheet curves, pl
 
 ## Download
 
-**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.7.1.pkg`
+**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.8.0.pkg`
 
 - macOS 13 or later, Apple Silicon (M1 or later)
 - Lightroom Classic and/or Photoshop 2025 or later (optional — the library and editor work on their own)
@@ -29,7 +29,7 @@ The app follows your Mac's language. To switch: **Advanced › 언어 · Languag
 ## Install
 
 1. Quit Photoshop and Lightroom Classic (save your work first).
-2. Open `ChiyoFilm-1.7.1.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
+2. Open `ChiyoFilm-1.8.0.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
 3. The editor app, the Photoshop plugin and the Lightroom plugin are installed together.
 4. **Once in Lightroom:** Settings › External Editing › Additional External Editor › Choose › `/Applications/Chiyo Film.app`
    - File format **TIFF or PSD**, **16-bit**, colour space as you usually work (ProPhoto RGB or Adobe RGB)
@@ -49,14 +49,16 @@ The app follows your Mac's language. To switch: **Advanced › 언어 · Languag
 
 > **Tip:** open RAW files in the library and start with **RAW Development** (exposure, white balance, highlight recovery). If you use Lightroom, developing there first and sending the photo to Chiyo Film still works as before.
 
-## Highlights (1.7)
+## Highlights (1.8)
 
+- **Match Set (new):** evens out brightness, white balance, skin colour (measured per face), contrast and saturation of a set against a reference photo, with per-photo changes, before/after previews, a strength slider and one-step ⌘Z.
+- **RAW for every camera brand (new):** the ‘Like the camera JPEG’ profile learns each camera model's own brightness and colour (skin included) from the JPEG inside its RAWs — within ±0.07 EV and 0–4° of skin hue on Canon, Nikon, Fujifilm, Panasonic, OM System, Pentax and Sony samples. Auto chromatic aberration measured on the photo (no lens data needed); Fujifilm X-Trans in the built-in converter.
 - **Photo library (new):** open a folder for Grid · Loupe · Compare · Auto Cull. Rate, flag and colour-label from the keyboard (1–5 · P · H · X · 6–9), filters and smart collections (edited, 4 stars & up, possibly blurry, eyes closed, bursts). Edits save next to each photo in a `.chiyo` file (no catalogue); RAW ratings and labels also go to `.xmp` for Lightroom and Bridge.
 - **Auto-cull help (new):** burst grouping with a suggested best shot; blur, missed focus, closed eyes and exposure flags.
 - **RAW Development (new):** exposure, white balance, highlight recovery and shadows with macOS's RAW engine, keeping up to 2 stops above white. Sony A7 V · A7R VI open too. RAW+JPG as two photos or one.
 - **Many photos at once (new):** ⌘/⇧-click multi-select, **Sync** (choose parts) and **Auto sync**, copy / paste edits, apply the previous edit, **virtual copies** (⌘'), right-click menus.
 - **Export (new):** presets for web / social, print TIFF, Instagram 4:5, original size and Photoshop PSD; JPEG · HEIC · TIFF · PSD with size estimate, naming templates and a background queue. Right from the editor and loupe (⌘E), or just the picks.
-- **1.7.1:** place the light leak with handles on the photo (like a linear gradient mask), and more natural dust and fibres.
+- **1.8.0:** place the light leak with handles on the photo (like a linear gradient mask), and more natural dust and fibres.
 - **Basic adjustments like Lightroom:** Highlights and Whites recover highlights naturally and sliders respond instantly; auto skin tone stays on the face.
 - **Spectral film colour:** models each film layer's spectral sensitivity and, for print stocks (cinema print 2383, paper), the dyes printing onto each other. Reds and skin come out cleaner and less muddy; cinema print skies turn teal on their own. New edits use it by default; edits saved earlier open unchanged (Adjust › Film › Color science).
 - **English interface**
@@ -94,7 +96,7 @@ Create a report with **Advanced › Create Problem Report File…** and attach i
 ## Uninstall
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.7.1/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/1.8.0/uninstall.sh"
 ```
 
 Your presets and favourites (`~/Library/Application Support/Chiyo Film`) are kept.
