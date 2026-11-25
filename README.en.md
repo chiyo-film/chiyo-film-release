@@ -16,7 +16,7 @@ A film-emulation editor for Mac. Film looks built from real datasheet curves, pl
 
 ## Download
 
-**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.9.1.pkg`
+**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.10.0.pkg`
 
 - macOS 13 or later, Apple Silicon (M1 or later)
 - Lightroom Classic and/or Photoshop 2025 or later (optional — the library and editor work on their own)
@@ -29,7 +29,7 @@ The app follows your Mac's language. To switch: **Advanced › 언어 · Languag
 ## Install
 
 1. Quit Photoshop and Lightroom Classic (save your work first).
-2. Open `ChiyoFilm-1.9.1.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
+2. Open `ChiyoFilm-1.10.0.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
 3. The editor app (`/Applications/Chiyo Film.app`), the Photoshop plug-in and the Lightroom plug-in are installed together. Install straight over an earlier version; presets, favourites and edit history are kept.
 
 ### Lightroom Classic setup (once)
@@ -59,7 +59,7 @@ After installing, **Plugins › Chiyo Film › Open Chiyo Film Editor** is in th
 1. Quit Photoshop completely (⌘Q) and open it again — required if it was running during the install.
 2. **Plugins › Manage Plugins…** (opens the Creative Cloud app) › installed plug-ins: make sure Chiyo Film is **On**.
 3. In the Chiyo Film app choose **Help › Reinstall Photoshop Plug-in…**. It reinstalls with Adobe's plug-in installer, or hands the plug-in to Creative Cloud (click "Install" when asked). Then restart Photoshop.
-4. Still missing: in Finder press ⇧⌘G, go to `/Library/Application Support/Chiyo Film/1.9.1/` and **double-click** `chiyo-film-1.9.1-photoshop.ccx`.
+4. Still missing: in Finder press ⇧⌘G, go to `/Library/Application Support/Chiyo Film/1.10.0/` and **double-click** `chiyo-film-1.10.0-photoshop.ccx`.
 
 > Photoshop plug-ins are installed through the Creative Cloud app: if it is missing or signed out, install it and sign in first. The first time, if Photoshop asks for permission to launch the editor, turn on **"Remember my choice"** and allow it.
 
@@ -125,7 +125,7 @@ Create a report with **Advanced › Create Problem Report File…** and attach i
 ## Uninstall
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.9.1/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/1.10.0/uninstall.sh"
 ```
 
 Your presets and favourites (`~/Library/Application Support/Chiyo Film`) are kept.

@@ -33,10 +33,10 @@
 <body>
 
 <section class="cover">
-  <h1>Chiyo Film 1.9</h1>
+  <h1>Chiyo Film 1.10</h1>
   <div class="sub">A Mac editor that gives your photos the color and grain of real film · User Manual</div>
   <img src="../img/01-editor.png" alt="Chiyo Film editor">
-  <div class="meta">Version 1.9.1 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
+  <div class="meta">Version 1.10.0 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
 </section>
 
 <h2>Contents</h2>
@@ -63,7 +63,7 @@
 <h2>1. Installation</h2>
 <ol>
   <li>Quit Photoshop and Lightroom Classic. (Save any open documents first.)</li>
-  <li>Open <code>ChiyoFilm-1.9.1.pkg</code>. The package is unsigned, so if macOS blocks it, <b>right-click › Open</b> it in Finder, or go to <b>System Settings › Privacy &amp; Security › Open Anyway</b>.</li>
+  <li>Open <code>ChiyoFilm-1.10.0.pkg</code>. The package is unsigned, so if macOS blocks it, <b>right-click › Open</b> it in Finder, or go to <b>System Settings › Privacy &amp; Security › Open Anyway</b>.</li>
   <li>The installer puts everything in place in one go:
     <ul>
       <li>The editor app: <code>/Applications/Chiyo Film.app</code></li>
@@ -73,7 +73,7 @@
   </li>
 </ol>
 <div class="warn">You can install straight over an earlier version. Your presets, favorites and edit history are kept.
-To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chiyo Film/1.9.1/uninstall.sh"</code></div>
+To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chiyo Film/1.10.0/uninstall.sh"</code></div>
 
 <h3>Lightroom Classic setup (once)</h3>
 <p>To send photos from Lightroom, register Chiyo Film as the additional external editor and save it as a preset.</p>
@@ -210,6 +210,12 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <tr><td>Right panel</td><td><b>Adjust</b> (Photo / Film), <b>Masks</b>, <b>History</b> (undo list), <b>Advanced</b>.</td></tr>
   <tr><td>Bottom right</td><td><b>Cancel</b> (<kbd>Esc</kbd>) · <b>Apply</b> (<kbd>Return</kbd>).</td></tr>
 </table>
+<ul>
+  <li><b>Easier-to-read controls (1.10)</b>: each control is one row of name · slider · value. Sliders that move a colour (temperature, tint and so on) show that colour on the track. Long explanations after a name appear when you point at it.</li>
+  <li><b>More</b>: long sections such as Development, Print, Grain and Damage show the most used controls first; click ‘More · n’ for the rest (‘n changed’ when a folded control differs from its default).</li>
+  <li><b>Find a control</b>: type ‘grain’ or ‘vignette’ in the field at the top of the right panel to gather the matching controls and use them right there.</li>
+  <li><b>Film list view</b>: the icons next to ‘All films’ switch between Large, Grid and List.</li>
+</ul>
 <h3>Scopes</h3>
 <ul>
   <li>Where the R, G and B traces overlap you see yellow, cyan, magenta and white. The white line is luminance.</li>
@@ -263,7 +269,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <tr><td>Grain</td><td>Amount, Grain size, color, Film resolution, shadow/midtone/highlight grain. The <b>‘Measured’ grain model</b> sets the grain for each film from the manufacturer's datasheet granularity</td></tr>
   <tr><td>Optics &amp; Lens Effects</td><td>Edge blur, Veiling flare, Film resolving power, <b>Add chromatic aberration</b> (the color fringes of old lenses), <b>Coma</b> (comet tails on point lights near the edges)</td></tr>
   <tr><td>Finishing · Light Leak · Damage</td><td>Vignette, light leaks (‘Position &amp; direction on photo’: like a linear gradient mask — the centre line sets where the light enters, the round knob its direction, the outer line its reach; ‘Width’ for the sideways spread), dust, fibers, scratches and stains (‘Dust &amp; fibre style’: Natural · Classic)</td></tr>
-  <tr><td>Overscan · Print Texture · Date Stamp</td><td>Film edges and sprocket holes (edge print reads like “CHIYO N101 ▶12”), halftone and paper texture, Date Stamp (type the date in one field: 19981113, 98 11 13, 1998.11.13 and so on; calendar, Capture date and Today buttons)</td></tr>
+  <tr><td>Overscan · Print Texture · Date Stamp</td><td>Film edges and sprocket holes (edge print reads like “CHIYO N101 ▶12”), halftone and paper texture, Date Stamp (type the date in one field: 19981113, 98 11 13, 1998.11.13 and so on; calendar, Capture date and Today buttons). Overscan fits the whole photo inside the gate (1.10, Overscan › Photo size).</td></tr>
 </table>
 <figure><img src="../img/08-diffusion.jpg" alt="Diffusion Filter"><figcaption>Diffusion Filter: none · Black Mist · White Mist 0.25/0.5/1 · Cine Bloom · Glimmer</figcaption></figure>
 <h3>Spectral color science (1.6.0)</h3>
@@ -349,9 +355,10 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <figure><img src="../img/04-frames.jpg" alt="Frame examples"><figcaption>Palette Card, 35mm Film Strip, Deckle-Edge Print, Taped Snapshot, Wood Board &amp; Clips, Contact sheet</figcaption></figure>
 <ul>
   <li><b>Frame &amp; Background</b> is at the very end of the ‘Film’ group in the Adjust tab. It places the finished photo on a larger canvas. The photo itself is unchanged, and no film effects are applied to the margins or background.</li>
-  <li><b>26 preset frames</b> in groups: Basic · Color · Text · Film · Texture. The tiles are drawn with your current photo.</li>
+  <li><b>Preset frames</b> in groups: Basic · Color · Text · Film · Texture · Cinema · <b>Shooting info</b> (1.10). The tiles are drawn with your current photo.</li>
+  <li><b>Shooting info (1.10)</b>: Strap · One-line info · Two-line info · Shot on camera · Film info (dark) · Poster · CinemaScope info · Dark two-line. They write the camera, lens, focal length, aperture, shutter speed and ISO from the photo's EXIF (text only, no logos); a photo without that data leaves the place empty.</li>
   <li><b>Colors taken from the photo</b>: a Color Palette that places 3–6 of the photo's colors in the margin (color codes optional), a background painted in a photo color (lighter, darker, complementary, midtone), an Aurora background that blends photo colors, and a Duotone blur in two colors.</li>
-  <li><b>Text</b>: up to two lines in the margin. Type your own text or use the tokens {date} (date stamp → capture date → today, in that order), {film}, {code} and {desc}; the Korean tokens {날짜} {필름} {코드} {설명} work too, and in the English interface {film} and {desc} use the English description. Four fonts (Serif, Sans serif, Typewriter, Handwritten), with size, letter spacing, color, alignment and position. If the text needs more room, the canvas grows to fit.</li>
+  <li><b>Text</b>: up to two lines in the margin. Type your own text or use the tokens {date} (date stamp → capture date → today, in that order), {film}, {code}, {desc} and the shooting data {camera} {lens} {exif} (e.g. 35mm f/1.8 1/250s ISO200), {focal} {aperture} {shutter} {iso}; the ‘Left · right’ layout puts lines 1–2 at the photo's left edge and two more lines at its right edge; the Korean tokens {날짜} {필름} {코드} {설명} work too, and in the English interface {film} and {desc} use the English description. Five fonts (Serif, Sans serif, Sans serif · first line bold, Typewriter, Handwritten), with size, letter spacing, color, alignment and position. If the text needs more room, the canvas grows to fit.</li>
   <li><b>Film</b>: 35mm Film Strip, Contact sheet (red grease-pencil marks), torn-paper edges, masking tape or clips, dust and light leaks on the background. ‘Variation’ changes the shapes.</li>
   <li><b>Texture backgrounds</b>: paper, linen and canvas, plus Fiber paper, Concrete, Coarse linen, Wood grain and Marble.</li>
   <li>Manual controls: canvas ratio (Margin only, Original, 1:1, 4:5, 3:4, 9:16, 16:9, 2:3, 3:2, A4), margin and bottom margin, position, background, Shadow, Rounded corners and Border. The controls are arranged in collapsible groups.</li>
@@ -436,7 +443,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>Quit Photoshop completely (<kbd>⌘</kbd><kbd>Q</kbd>) and open it again — required if it was running during the install.</li>
   <li><b>Plugins › Manage Plugins…</b> (opens the Creative Cloud app) › installed plug-ins: make sure Chiyo Film is <b>On</b>.</li>
   <li>In the Chiyo Film app choose <b>Help › Reinstall Photoshop Plug-in…</b>. It reinstalls with Adobe's plug-in installer, or hands the plug-in to Creative Cloud (click “Install” when asked). Then restart Photoshop.</li>
-  <li>Still missing: in Finder press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>, go to <code>/Library/Application Support/Chiyo Film/1.9.1/</code> and double-click <code>chiyo-film-1.9.1-photoshop.ccx</code>.</li>
+  <li>Still missing: in Finder press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>, go to <code>/Library/Application Support/Chiyo Film/1.10.0/</code> and double-click <code>chiyo-film-1.10.0-photoshop.ccx</code>.</li>
 </ol>
 <p>Photoshop plug-ins are installed through the Creative Cloud app, so nothing is installed if it is missing or signed out. The install log is <code>/tmp/ChiyoFilm-install.log</code>, also included in <b>Advanced › Create Problem Report File</b>.</p>
 <h3>“Edit In › Chiyo Film” isn't in Lightroom</h3>
