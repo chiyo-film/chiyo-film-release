@@ -36,7 +36,7 @@
   <h1>Chiyo Film 1.8</h1>
   <div class="sub">A Mac editor that gives your photos the color and grain of real film · User Manual</div>
   <img src="../img/01-editor.png" alt="Chiyo Film editor">
-  <div class="meta">Version 1.8.0 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
+  <div class="meta">Version 1.8.1 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
 </section>
 
 <h2>Contents</h2>
@@ -63,24 +63,50 @@
 <h2>1. Installation</h2>
 <ol>
   <li>Quit Photoshop and Lightroom Classic. (Save any open documents first.)</li>
-  <li>Open <code>ChiyoFilm-1.6.0.pkg</code>. The package is unsigned, so if macOS blocks it, <b>right-click › Open</b> it in Finder, or go to <b>System Settings › Privacy &amp; Security › Open Anyway</b>.</li>
+  <li>Open <code>ChiyoFilm-1.8.1.pkg</code>. The package is unsigned, so if macOS blocks it, <b>right-click › Open</b> it in Finder, or go to <b>System Settings › Privacy &amp; Security › Open Anyway</b>.</li>
   <li>The installer puts everything in place in one go:
     <ul>
       <li>The editor app: <code>/Applications/Chiyo Film.app</code></li>
-      <li>The Photoshop plug-in (Plugins › Chiyo Film)</li>
+      <li>The Photoshop plug-in (Plugins › Chiyo Film) — installed through the Creative Cloud app</li>
       <li>The Lightroom Classic plug-in (File › Plug-in Extras › Chiyo Film)</li>
-    </ul>
-  </li>
-  <li><b>Once, in Lightroom:</b> go to Preferences › External Editing › Additional External Editor › Choose, and pick <code>Chiyo Film.app</code>.
-    <ul>
-      <li>File Format: <b>TIFF or PSD</b>, Bit Depth: <b>16 bits/component</b></li>
-      <li>Color Space: the same one you normally use (ProPhoto RGB or Adobe RGB)</li>
-      <li>Preset › Save Current Settings as New Preset › “Chiyo Film”</li>
     </ul>
   </li>
 </ol>
 <div class="warn">You can install straight over an earlier version. Your presets, favorites and edit history are kept.
-To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chiyo Film/1.6.0/uninstall.sh"</code></div>
+To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chiyo Film/1.8.1/uninstall.sh"</code></div>
+
+<h3>Lightroom Classic setup (once)</h3>
+<p>To send photos from Lightroom, register Chiyo Film as the additional external editor and save it as a preset.</p>
+<ol>
+  <li>In Lightroom Classic choose <b>Lightroom Classic › Settings…</b> (<kbd>⌘</kbd><kbd>,</kbd>) — “Preferences” in older versions.</li>
+  <li>Click the <b>External Editing</b> tab at the top. <b>Not the “Presets” tab</b> — the names are easy to mix up.</li>
+  <li>Leave “Edit in Adobe Photoshop” at the top as it is. In the <b>Additional External Editor</b> area below:
+    <ul>
+      <li><b>Application</b>: <b>Choose…</b> → <code>/Applications/Chiyo Film.app</code></li>
+      <li><b>File Format</b>: TIFF (or PSD)</li>
+      <li><b>Color Space</b>: ProPhoto RGB (or Adobe RGB if that's what you use)</li>
+      <li><b>Bit Depth</b>: 16 bits/component</li>
+      <li><b>Resolution</b> and compression: leave them</li>
+    </ul>
+  </li>
+  <li>Open the <b>“Preset:” menu on the first line of that same area</b> (it shows “Custom”) and choose <b>Save Current Settings as New Preset…</b>; name it <b>Chiyo Film</b>. Set step 3 first so the preset holds those settings.</li>
+  <li>Close the window. Right-click a photo › <b>Edit In › Chiyo Film</b> (<kbd>⌥</kbd><kbd>⌘</kbd><kbd>E</kbd>) is there now.</li>
+</ol>
+<figure style="border:1px solid #ddd;border-radius:2mm;padding:3mm 4mm;font-size:9pt;break-inside:avoid">
+<div style="text-align:center;color:#666;margin-bottom:2mm">Lightroom Classic › Settings (Preferences)</div>
+<div style="display:flex;gap:1.5mm;justify-content:center;margin-bottom:3mm;color:#666">General · Presets · <span style="border:2px solid #e8833a;background:#fff6ec;border-radius:2mm;padding:0.5mm 2.5mm;">① External Editing</span> · File Handling …</div>
+<div style="color:#999;margin-bottom:2mm">Edit in Adobe Photoshop (leave it)</div>
+<div style="font-weight:600;margin-bottom:1mm">Additional External Editor</div>
+<div style="display:flex;gap:3mm;align-items:center;margin:1.2mm 0"><span style="width:26mm;text-align:right;color:#666">Preset:</span><span style="border:2px solid #e8833a;background:#fff6ec;border-radius:2mm;padding:0.5mm 2.5mm;">④ Custom ⌄</span><span style="color:#c06520">→ Save Current Settings as New Preset… → Chiyo Film</span></div>
+<div style="display:flex;gap:3mm;align-items:center;margin:1.2mm 0"><span style="width:26mm;text-align:right;color:#666">Application:</span><span style="color:#666">Chiyo Film.app</span><span style="border:2px solid #e8833a;background:#fff6ec;border-radius:2mm;padding:0.5mm 2.5mm;">② Choose…</span></div>
+<div style="display:flex;gap:3mm;align-items:center;margin:1.2mm 0"><span style="width:26mm;text-align:right;color:#666">File Format:</span><span style="border:1px solid #bbb;border-radius:2mm;padding:0.5mm 2.5mm;">③ TIFF ⌄</span></div>
+<div style="display:flex;gap:3mm;align-items:center;margin:1.2mm 0"><span style="width:26mm;text-align:right;color:#666">Color Space:</span><span style="border:1px solid #bbb;border-radius:2mm;padding:0.5mm 2.5mm;">③ ProPhoto RGB ⌄</span></div>
+<div style="display:flex;gap:3mm;align-items:center;margin:1.2mm 0"><span style="width:26mm;text-align:right;color:#666">Bit Depth:</span><span style="border:1px solid #bbb;border-radius:2mm;padding:0.5mm 2.5mm;">③ 16 bits/component ⌄</span></div>
+<figcaption>Steps ① to ④ in order. The preset menu is at the top of this area, not on the “Presets” tab.</figcaption></figure>
+<div class="tip"><b>Check:</b> the Chiyo Film app's <b>Help › Getting started</b>, step 2 “Lightroom · Photoshop check”, shows whether the external editor is registered and the plug-ins are installed. Lightroom (the cloud version) has no external editing; only <b>Classic</b> works.</div>
+
+<h3>Photoshop plug-in</h3>
+<p>After installing, <b>Plugins › Chiyo Film › Open Chiyo Film Editor</b> is in the menu — a <b>menu command</b>, not a panel. Photoshop 2025 or later. If it's missing, see “Chiyo Film isn't in Photoshop's Plugins menu” in chapter 17.</p>
 
 <h2>2. Opening photos</h2>
 <h3>Lightroom Classic (external editing)</h3>
@@ -398,7 +424,15 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <h3>I get a message about “transparent areas”</h3>
 <p>It means the transparent areas were filled with white when the photo was opened. The result is saved as opaque.</p>
 <h3>Chiyo Film isn't in Photoshop's Plugins menu</h3>
-<p>Run the installer again and restart Photoshop. If it still isn't there, check under <b>Plugins › Manage Plugins</b> that Chiyo Film is enabled.</p>
+<ol>
+  <li>Quit Photoshop completely (<kbd>⌘</kbd><kbd>Q</kbd>) and open it again — required if it was running during the install.</li>
+  <li><b>Plugins › Manage Plugins…</b> (opens the Creative Cloud app) › installed plug-ins: make sure Chiyo Film is <b>On</b>.</li>
+  <li>In the Chiyo Film app choose <b>Help › Reinstall Photoshop Plug-in…</b>. It reinstalls with Adobe's plug-in installer, or hands the plug-in to Creative Cloud (click “Install” when asked). Then restart Photoshop.</li>
+  <li>Still missing: in Finder press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>, go to <code>/Library/Application Support/Chiyo Film/1.8.1/</code> and double-click <code>chiyo-film-1.8.1-photoshop.ccx</code>.</li>
+</ol>
+<p>Photoshop plug-ins are installed through the Creative Cloud app, so nothing is installed if it is missing or signed out. The install log is <code>/tmp/ChiyoFilm-install.log</code>, also included in <b>Advanced › Create Problem Report File</b>.</p>
+<h3>“Edit In › Chiyo Film” isn't in Lightroom</h3>
+<p>Check “Lightroom Classic setup” in chapter 1 again. The usual cause is looking in the <b>Presets tab</b> — the preset menu is at the <b>top of the Additional External Editor area on the External Editing tab</b>. After choosing the application, “Save Current Settings as New Preset…” puts the name in the menu.</p>
 <h3>“Unidentified developer” warning</h3>
 <p>Right-click the installer in Finder › Open, or go to System Settings › Privacy &amp; Security › Open Anyway.</p>
 <h3>Will my old edits change color after updating to 1.6.0?</h3>

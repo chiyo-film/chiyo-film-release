@@ -16,7 +16,7 @@ A film-emulation editor for Mac. Film looks built from real datasheet curves, pl
 
 ## Download
 
-**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.8.0.pkg`
+**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.8.1.pkg`
 
 - macOS 13 or later, Apple Silicon (M1 or later)
 - Lightroom Classic and/or Photoshop 2025 or later (optional — the library and editor work on their own)
@@ -29,11 +29,37 @@ The app follows your Mac's language. To switch: **Advanced › 언어 · Languag
 ## Install
 
 1. Quit Photoshop and Lightroom Classic (save your work first).
-2. Open `ChiyoFilm-1.8.0.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
-3. The editor app, the Photoshop plugin and the Lightroom plugin are installed together.
-4. **Once in Lightroom:** Settings › External Editing › Additional External Editor › Choose › `/Applications/Chiyo Film.app`
-   - File format **TIFF or PSD**, **16-bit**, colour space as you usually work (ProPhoto RGB or Adobe RGB)
-   - Preset › Save Current Settings as New Preset › "Chiyo Film"
+2. Open `ChiyoFilm-1.8.1.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
+3. The editor app (`/Applications/Chiyo Film.app`), the Photoshop plug-in and the Lightroom plug-in are installed together. Install straight over an earlier version; presets, favourites and edit history are kept.
+
+### Lightroom Classic setup (once)
+
+To send photos with **Photo › Edit In › Chiyo Film**, register Chiyo Film as the additional external editor and save it as a preset.
+
+1. In Lightroom Classic choose **Lightroom Classic › Settings…** (⌘,) — "Preferences" in older versions.
+2. Click the **External Editing** tab at the top. **Not the "Presets" tab** — the names are easy to mix up.
+3. Leave "Edit in Adobe Photoshop" at the top as it is. In the **Additional External Editor** area below:
+   - **Application › Choose…** → `/Applications/Chiyo Film.app`
+   - **File Format**: TIFF (or PSD)
+   - **Color Space**: ProPhoto RGB (or Adobe RGB if that is what you use)
+   - **Bit Depth**: 16 bits/component
+   - **Resolution**: leave it (300)
+4. Open the **"Preset:" menu on the first line of that same area** (it shows "Custom") and choose **Save Current Settings as New Preset…**; name it **Chiyo Film**. Set step 3 first so the preset holds those settings.
+5. Close the window. Right-click a photo › **Edit In › Chiyo Film** (⌥⌘E) is there now; the first time, choose **"Edit a Copy with Lightroom Adjustments"**.
+
+> The Chiyo Film app's **Help › Getting started › Lightroom · Photoshop check** shows whether it is registered. Lightroom (the cloud version) has no external editing; only **Classic** works.
+
+### Photoshop plug-in
+
+After installing, **Plugins › Chiyo Film › Open Chiyo Film Editor** is in the menu (a **menu command**, not a panel). Photoshop 2025 or later.
+
+**Not in the menu? In order:**
+1. Quit Photoshop completely (⌘Q) and open it again — required if it was running during the install.
+2. **Plugins › Manage Plugins…** (opens the Creative Cloud app) › installed plug-ins: make sure Chiyo Film is **On**.
+3. In the Chiyo Film app choose **Help › Reinstall Photoshop Plug-in…**. It reinstalls with Adobe's plug-in installer, or hands the plug-in to Creative Cloud (click "Install" when asked). Then restart Photoshop.
+4. Still missing: in Finder press ⇧⌘G, go to `/Library/Application Support/Chiyo Film/1.8.1/` and **double-click** `chiyo-film-1.8.1-photoshop.ccx`.
+
+> Photoshop plug-ins are installed through the Creative Cloud app: if it is missing or signed out, install it and sign in first. The first time, if Photoshop asks for permission to launch the editor, turn on **"Remember my choice"** and allow it.
 
 ## Use
 
@@ -58,7 +84,7 @@ The app follows your Mac's language. To switch: **Advanced › 언어 · Languag
 - **RAW Development (new):** exposure, white balance, highlight recovery and shadows with macOS's RAW engine, keeping up to 2 stops above white. Sony A7 V · A7R VI open too. RAW+JPG as two photos or one.
 - **Many photos at once (new):** ⌘/⇧-click multi-select, **Sync** (choose parts) and **Auto sync**, copy / paste edits, apply the previous edit, **virtual copies** (⌘'), right-click menus.
 - **Export (new):** presets for web / social, print TIFF, Instagram 4:5, original size and Photoshop PSD; JPEG · HEIC · TIFF · PSD with size estimate, naming templates and a background queue. Right from the editor and loupe (⌘E), or just the picks.
-- **1.8.0:** place the light leak with handles on the photo (like a linear gradient mask), and more natural dust and fibres.
+- **1.8.1:** place the light leak with handles on the photo (like a linear gradient mask), and more natural dust and fibres.
 - **Basic adjustments like Lightroom:** Highlights and Whites recover highlights naturally and sliders respond instantly; auto skin tone stays on the face.
 - **Spectral film colour:** models each film layer's spectral sensitivity and, for print stocks (cinema print 2383, paper), the dyes printing onto each other. Reds and skin come out cleaner and less muddy; cinema print skies turn teal on their own. New edits use it by default; edits saved earlier open unchanged (Adjust › Film › Color science).
 - **English interface**
@@ -96,7 +122,7 @@ Create a report with **Advanced › Create Problem Report File…** and attach i
 ## Uninstall
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.8.0/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/1.8.1/uninstall.sh"
 ```
 
 Your presets and favourites (`~/Library/Application Support/Chiyo Film`) are kept.
