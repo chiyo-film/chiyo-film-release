@@ -36,7 +36,7 @@
   <h1>Chiyo Film 1.9</h1>
   <div class="sub">A Mac editor that gives your photos the color and grain of real film · User Manual</div>
   <img src="../img/01-editor.png" alt="Chiyo Film editor">
-  <div class="meta">Version 1.9.0 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
+  <div class="meta">Version 1.9.1 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
 </section>
 
 <h2>Contents</h2>
@@ -63,7 +63,7 @@
 <h2>1. Installation</h2>
 <ol>
   <li>Quit Photoshop and Lightroom Classic. (Save any open documents first.)</li>
-  <li>Open <code>ChiyoFilm-1.9.0.pkg</code>. The package is unsigned, so if macOS blocks it, <b>right-click › Open</b> it in Finder, or go to <b>System Settings › Privacy &amp; Security › Open Anyway</b>.</li>
+  <li>Open <code>ChiyoFilm-1.9.1.pkg</code>. The package is unsigned, so if macOS blocks it, <b>right-click › Open</b> it in Finder, or go to <b>System Settings › Privacy &amp; Security › Open Anyway</b>.</li>
   <li>The installer puts everything in place in one go:
     <ul>
       <li>The editor app: <code>/Applications/Chiyo Film.app</code></li>
@@ -73,7 +73,7 @@
   </li>
 </ol>
 <div class="warn">You can install straight over an earlier version. Your presets, favorites and edit history are kept.
-To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chiyo Film/1.9.0/uninstall.sh"</code></div>
+To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chiyo Film/1.9.1/uninstall.sh"</code></div>
 
 <h3>Lightroom Classic setup (once)</h3>
 <p>To send photos from Lightroom, register Chiyo Film as the additional external editor and save it as a preset.</p>
@@ -120,7 +120,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <h3>Photoshop</h3>
 <ol>
   <li>Open a photo and choose <b>Plugins › Chiyo Film › Open Chiyo Film Editor</b>.</li>
-  <li>The first time, if Photoshop asks for permission to launch the editor, turn on <b>“Remember my choice”</b> and allow it.</li>
+  <li>The first time, Photoshop shows a <b>Permission request</b> (“Chiyo Film plugin wants to open: chiyofilm://…”). This is Photoshop’s security check and is expected. Check <b>“Remember my choice”</b> and click <b>Allow</b> so it doesn’t ask again (without the check it asks every time). “Block” keeps the editor from opening; run the menu command again and allow it.</li>
   <li>When you apply, a “Chiyo Film · <i>film name</i>” layer is added at the top. One Undo removes it, and when you open the editor again it uses the photo without the earlier Chiyo layer, so effects never stack.</li>
 </ol>
 <p>Supported: RGB 8/16-bit, sRGB · Display P3 · Adobe RGB · ProPhoto RGB. CMYK, HDR and transparent canvases are not supported.</p>
@@ -436,7 +436,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>Quit Photoshop completely (<kbd>⌘</kbd><kbd>Q</kbd>) and open it again — required if it was running during the install.</li>
   <li><b>Plugins › Manage Plugins…</b> (opens the Creative Cloud app) › installed plug-ins: make sure Chiyo Film is <b>On</b>.</li>
   <li>In the Chiyo Film app choose <b>Help › Reinstall Photoshop Plug-in…</b>. It reinstalls with Adobe's plug-in installer, or hands the plug-in to Creative Cloud (click “Install” when asked). Then restart Photoshop.</li>
-  <li>Still missing: in Finder press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>, go to <code>/Library/Application Support/Chiyo Film/1.9.0/</code> and double-click <code>chiyo-film-1.9.0-photoshop.ccx</code>.</li>
+  <li>Still missing: in Finder press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>, go to <code>/Library/Application Support/Chiyo Film/1.9.1/</code> and double-click <code>chiyo-film-1.9.1-photoshop.ccx</code>.</li>
 </ol>
 <p>Photoshop plug-ins are installed through the Creative Cloud app, so nothing is installed if it is missing or signed out. The install log is <code>/tmp/ChiyoFilm-install.log</code>, also included in <b>Advanced › Create Problem Report File</b>.</p>
 <h3>“Edit In › Chiyo Film” isn't in Lightroom</h3>

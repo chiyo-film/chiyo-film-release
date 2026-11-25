@@ -36,7 +36,7 @@
   <h1>Chiyo Film 1.9</h1>
   <div class="sub">사진에 실제 필름의 색과 입자를 입히는 Mac 편집기 · 사용 설명서</div>
   <img src="../img/01-editor.png" alt="Chiyo Film 편집기">
-  <div class="meta">버전 1.9.0 · macOS 13 이상 (Apple Silicon) · Photoshop 2025 이상 / Lightroom Classic</div>
+  <div class="meta">버전 1.9.1 · macOS 13 이상 (Apple Silicon) · Photoshop 2025 이상 / Lightroom Classic</div>
 </section>
 
 <h2>차례</h2>
@@ -63,7 +63,7 @@
 <h2>1. 설치</h2>
 <ol>
   <li>Photoshop과 Lightroom Classic을 종료합니다. (작업 중인 문서는 먼저 저장하세요.)</li>
-  <li><code>ChiyoFilm-1.9.0.pkg</code>를 엽니다. 서명되지 않은 패키지라 막히면 Finder에서 <b>우클릭 › 열기</b>, 또는 <b>시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기</b>를 누릅니다.</li>
+  <li><code>ChiyoFilm-1.9.1.pkg</code>를 엽니다. 서명되지 않은 패키지라 막히면 Finder에서 <b>우클릭 › 열기</b>, 또는 <b>시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기</b>를 누릅니다.</li>
   <li>설치가 끝나면 다음이 한 번에 들어갑니다.
     <ul>
       <li>편집기 앱: <code>/Applications/Chiyo Film.app</code></li>
@@ -73,7 +73,7 @@
   </li>
 </ol>
 <div class="warn">이전 버전 위에 그대로 설치하면 됩니다. 프리셋·즐겨찾기·편집 기록은 유지됩니다.
-제거: 터미널에서 <code>sudo "/Library/Application Support/Chiyo Film/1.9.0/uninstall.sh"</code></div>
+제거: 터미널에서 <code>sudo "/Library/Application Support/Chiyo Film/1.9.1/uninstall.sh"</code></div>
 
 <h3>Lightroom Classic 설정 (처음 한 번)</h3>
 <p>Lightroom에서 사진을 Chiyo Film으로 보내려면 Chiyo Film을 ‘추가 외부 편집기’로 등록하고 사전 설정으로 저장합니다.</p>
@@ -120,7 +120,7 @@
 <h3>Photoshop</h3>
 <ol>
   <li>사진을 열고 <b>플러그인 › Chiyo Film › Chiyo Film 편집기 열기</b>.</li>
-  <li>처음 한 번 Photoshop이 실행 권한을 물으면 <b>“내 선택 기억”</b>을 켜고 허용합니다.</li>
+  <li>처음 열 때 Photoshop이 <b>권한 요청</b>(“Chiyo Film 플러그인이 다음을 열고자 함: chiyofilm://…”)을 띄웁니다. Photoshop의 보안 확인이며 정상입니다. <b>“내 선택 기억”</b>을 체크하고 <b>허용</b>을 누르면 다음부터 묻지 않습니다(체크하지 않으면 열 때마다 묻습니다). ‘차단’을 누르면 편집기가 열리지 않으니 메뉴를 다시 실행해 허용하세요.</li>
   <li>적용하면 맨 위에 “Chiyo Film · 필름 이름” 레이어가 생깁니다. Undo 한 번으로 되돌릴 수 있고, 다시 열면 이전 Chiyo 레이어를 뺀 사진으로 열려 효과가 겹치지 않습니다.</li>
 </ol>
 <p>지원: RGB 8/16비트, sRGB · Display P3 · Adobe RGB · ProPhoto RGB. CMYK, HDR, 투명한 캔버스는 지원하지 않습니다.</p>
@@ -437,7 +437,7 @@
   <li>Photoshop을 완전히 종료(<kbd>⌘</kbd><kbd>Q</kbd>)했다가 다시 켭니다. 설치할 때 Photoshop이 켜져 있었다면 꼭 필요합니다.</li>
   <li><b>플러그인 › 플러그인 관리…</b>(Creative Cloud 앱이 열림) › 설치된 플러그인에서 Chiyo Film이 <b>켜짐</b>인지 확인합니다.</li>
   <li>Chiyo Film 앱의 <b>도움말 › Photoshop 플러그인 다시 설치…</b>를 누릅니다. Adobe 플러그인 설치 도구로 다시 설치하고, 그게 안 되면 Creative Cloud에 설치를 맡깁니다(창이 뜨면 ‘설치’). 그다음 Photoshop을 다시 켭니다.</li>
-  <li>그래도 없으면 Finder에서 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>로 <code>/Library/Application Support/Chiyo Film/1.9.0/</code>를 열고 <code>chiyo-film-1.9.0-photoshop.ccx</code>를 더블클릭합니다.</li>
+  <li>그래도 없으면 Finder에서 <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>로 <code>/Library/Application Support/Chiyo Film/1.9.1/</code>를 열고 <code>chiyo-film-1.9.1-photoshop.ccx</code>를 더블클릭합니다.</li>
 </ol>
 <p>Photoshop 플러그인은 Creative Cloud 앱을 통해 설치되므로, Creative Cloud 앱이 없거나 로그아웃되어 있으면 설치되지 않습니다. 설치 기록은 <code>/tmp/ChiyoFilm-install.log</code>에 남고, <b>고급 탭 › 문제 보고 파일 만들기</b>에 함께 들어갑니다.</p>
 <h3>Lightroom에 ‘편집 › Chiyo Film’이 없어요</h3>
