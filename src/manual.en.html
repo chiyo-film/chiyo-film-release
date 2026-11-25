@@ -33,10 +33,10 @@
 <body>
 
 <section class="cover">
-  <h1>Chiyo Film 1.8</h1>
+  <h1>Chiyo Film 1.9</h1>
   <div class="sub">A Mac editor that gives your photos the color and grain of real film · User Manual</div>
   <img src="../img/01-editor.png" alt="Chiyo Film editor">
-  <div class="meta">Version 1.8.1 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
+  <div class="meta">Version 1.9.0 · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
 </section>
 
 <h2>Contents</h2>
@@ -63,7 +63,7 @@
 <h2>1. Installation</h2>
 <ol>
   <li>Quit Photoshop and Lightroom Classic. (Save any open documents first.)</li>
-  <li>Open <code>ChiyoFilm-1.8.1.pkg</code>. The package is unsigned, so if macOS blocks it, <b>right-click › Open</b> it in Finder, or go to <b>System Settings › Privacy &amp; Security › Open Anyway</b>.</li>
+  <li>Open <code>ChiyoFilm-1.9.0.pkg</code>. The package is unsigned, so if macOS blocks it, <b>right-click › Open</b> it in Finder, or go to <b>System Settings › Privacy &amp; Security › Open Anyway</b>.</li>
   <li>The installer puts everything in place in one go:
     <ul>
       <li>The editor app: <code>/Applications/Chiyo Film.app</code></li>
@@ -73,7 +73,7 @@
   </li>
 </ol>
 <div class="warn">You can install straight over an earlier version. Your presets, favorites and edit history are kept.
-To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chiyo Film/1.8.1/uninstall.sh"</code></div>
+To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chiyo Film/1.9.0/uninstall.sh"</code></div>
 
 <h3>Lightroom Classic setup (once)</h3>
 <p>To send photos from Lightroom, register Chiyo Film as the additional external editor and save it as a preset.</p>
@@ -253,10 +253,11 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <table>
   <tr><th>Section</th><th>What it does</th></tr>
   <tr><td>Color science</td><td><b>Spectral</b> (new default) · <b>Classic</b> (the method before 1.6.0). See ‘Spectral color science’ below</td></tr>
+  <tr><td>B&amp;W filter (1.9)</td><td>Lens filter in front of B&amp;W film: none · yellow #8 · deep yellow #15 · orange #21 · red #25 · deep red #29 · green #58 · blue #47 · Classic (up to 1.8). See ‘Black-and-white (1.9)’ below</td></tr>
   <tr><td>Print medium</td><td>Lab scan (color and B&amp;W), Slide scan, photo papers (Glossy · Matte · Warm Silver), measured print film and paper models (P101 · P102 · P201), Chiyo Baryta, Chiyo Log and more</td></tr>
   <tr><td>Film</td><td>Overall amount (how much film look), Film strength, Film aging (expired film) and its color shift, Protect skin tones, <b>Film format</b> (half frame · 35mm · 6×4.5 · 6×6 · 6×7 · 6×9 · 4×5 — the larger the format, the finer the grain and the smaller the glow)</td></tr>
   <tr><td>Development · Compression · Levels</td><td>Development contrast, saturation, Base fog, Development gamma, color separation, Color boost, <b>Push/Pull</b> (stops), <b>Bleach bypass · Negative (creative)</b> / Highlight compression / black and white points</td></tr>
-  <tr><td>Print</td><td>Print contrast, exposure and saturation; shadow, midtone and highlight toning and tint; CMY filters; <b>Printer points</b> R·G·B·Gang (1 point = 1/12 stop); <b>Preflash</b> (+ color); <b>print shadow and highlight shape</b>; print push/pull; <b>Bleach bypass · Print (creative)</b></td></tr>
+  <tr><td>Print</td><td>Print contrast, exposure and saturation; shadow, midtone and highlight toning and tint; CMY filters; <b>Printer points</b> R·G·B·Gang (1 point = 1/12 stop); <b>Preflash</b> (+ color); <b>print shadow and highlight shape</b>; print push/pull; <b>Bleach bypass · Print (creative)</b>; <b>Paper grade</b> (1.9, −1 to 5 on B&amp;W papers)</td></tr>
   <tr><td>Glow</td><td>Bloom · Halation · Diffusion · Motion · Streak styles. Choosing a style shows only Amount, Range, Spread and Warmth (+ direction and softness); the rest is under ‘Detail’. Active styles are marked with a dot</td></tr>
   <tr><td>Diffusion Filter</td><td>An in-front-of-the-lens diffusion filter: Black Mist (halo around highlights, blacks stay black) · White Mist (milky veil, pastel) · Glimmer · Cine Bloom. Amount, size and halo warmth. Use Masks › Effects › Diffusion Filter to exclude people or apply it to part of the photo</td></tr>
   <tr><td>Grain</td><td>Amount, Grain size, color, Film resolution, shadow/midtone/highlight grain. The <b>‘Measured’ grain model</b> sets the grain for each film from the manufacturer's datasheet granularity</td></tr>
@@ -274,6 +275,13 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>Newly opened photos, choosing a film, built-in looks (including cinema looks), Picks for this photo and look matching all start in <b>Spectral</b>.</li>
   <li>Edits, presets, snapshots, settings files and Photoshop re-edits saved before 1.6.0 open in <b>Classic</b> and render <b>exactly as before</b>. The status line tells you when this happens, and you can switch to ‘Spectral’ if you like. Presets saved in 1.6.0 remember the mode you chose.</li>
   <li>Lightroom batch: built-in looks use Spectral; Last edit, My presets and settings JSON files use the mode they were saved with. Quick film settings has a ‘Color science’ menu.</li>
+</ul>
+<h3>Black-and-white (1.9)</h3>
+<ul>
+  <li><b>Spectral sensitivity</b>: B&amp;W films set their brightness from the film's real spectral sensitivity instead of hand-set R·G·B weights. Classes: panchromatic (most), cine, orthochromatic (red-blind: red lips and clothes go dark), extended red, and blue-only (wet plate). Unfiltered panchromatic film leans blue like the real thing, so skies come out light. Infrared stocks stay creative looks, as an RGB photo holds no near infrared.</li>
+  <li><b>B&amp;W filter</b> (Adjust › Film): none, yellow #8, deep yellow #15, orange #21, red #25, deep red #29, green #58, blue #47, or Classic (up to 1.8). Yellow is close to what the eye sees; orange and red darken skies, bring out clouds and lighten and smooth skin; green lightens foliage and deepens lips; blue lightens skies and darkens reds. The filter factor is compensated so greys keep their brightness. A combination where the film barely sees the light the filter passes (orthochromatic + red) is flagged as having no effect.</li>
+  <li><b>Paper grade</b> (Adjust › Print): with a B&amp;W paper (Warm Silver · Baryta) as the print medium, choose a variable-contrast grade −1 to 5: 0–1 soft, 2 normal, 3–5 hard. The midtones are held while shadows and highlights spread or gather. Default: ‘Paper as is’.</li>
+  <li>Edits, presets and built-in looks saved up to 1.8 open with the B&amp;W filter at <b>‘Classic (up to 1.8)’</b> and render exactly as before.</li>
 </ul>
 <div class="tip"><b>Film exposure vs. Push/Pull:</b> ‘Film exposure (EV)’ below the film list on the left changes exposure only (formerly Push / Pull), while Development › ‘Push/Pull’ changes the development time, so contrast and grain change too.</div>
 <div class="tip"><b>To soften the film look:</b> lower Film › Overall amount. <b>If a portrait is too bright:</b> lower Basic › Highlights, or bring Film › Print exposure EV down slightly.</div>
@@ -428,7 +436,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li>Quit Photoshop completely (<kbd>⌘</kbd><kbd>Q</kbd>) and open it again — required if it was running during the install.</li>
   <li><b>Plugins › Manage Plugins…</b> (opens the Creative Cloud app) › installed plug-ins: make sure Chiyo Film is <b>On</b>.</li>
   <li>In the Chiyo Film app choose <b>Help › Reinstall Photoshop Plug-in…</b>. It reinstalls with Adobe's plug-in installer, or hands the plug-in to Creative Cloud (click “Install” when asked). Then restart Photoshop.</li>
-  <li>Still missing: in Finder press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>, go to <code>/Library/Application Support/Chiyo Film/1.8.1/</code> and double-click <code>chiyo-film-1.8.1-photoshop.ccx</code>.</li>
+  <li>Still missing: in Finder press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>G</kbd>, go to <code>/Library/Application Support/Chiyo Film/1.9.0/</code> and double-click <code>chiyo-film-1.9.0-photoshop.ccx</code>.</li>
 </ol>
 <p>Photoshop plug-ins are installed through the Creative Cloud app, so nothing is installed if it is missing or signed out. The install log is <code>/tmp/ChiyoFilm-install.log</code>, also included in <b>Advanced › Create Problem Report File</b>.</p>
 <h3>“Edit In › Chiyo Film” isn't in Lightroom</h3>

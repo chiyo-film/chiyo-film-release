@@ -16,7 +16,7 @@
 
 ## 다운로드
 
-**[최신 버전 받기 (Releases)](../../releases/latest)** → `ChiyoFilm-1.8.1.pkg`
+**[최신 버전 받기 (Releases)](../../releases/latest)** → `ChiyoFilm-1.9.0.pkg`
 
 - macOS 13 이상, Apple Silicon (M1 이상)
 - Lightroom Classic, Photoshop 2025 이상은 선택 (없어도 라이브러리·편집기로 단독 사용)
@@ -27,7 +27,7 @@
 ## 설치
 
 1. Photoshop과 Lightroom Classic을 종료합니다 (작업 중인 문서는 먼저 저장).
-2. `ChiyoFilm-1.8.1.pkg`를 엽니다. “확인되지 않은 개발자” 경고가 나오면 Finder에서 **우클릭 › 열기**, 또는 **시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기**.
+2. `ChiyoFilm-1.9.0.pkg`를 엽니다. “확인되지 않은 개발자” 경고가 나오면 Finder에서 **우클릭 › 열기**, 또는 **시스템 설정 › 개인정보 보호 및 보안 › 그래도 열기**.
 3. 편집기 앱(`/Applications/Chiyo Film.app`), Photoshop 플러그인, Lightroom 플러그인이 한 번에 설치됩니다. 이전 버전 위에 그대로 설치하면 되고, 프리셋·즐겨찾기·편집 기록은 유지됩니다.
 
 ### Lightroom Classic 설정 (처음 한 번)
@@ -55,7 +55,7 @@ Lightroom에서 **사진 › 편집 › Chiyo Film**으로 보내려면 Chiyo Fi
 1. Photoshop을 완전히 종료(⌘Q)했다가 다시 켭니다. 설치할 때 Photoshop이 켜져 있었다면 꼭 필요합니다.
 2. **플러그인 › 플러그인 관리…**(Creative Cloud 앱이 열림) › 설치된 플러그인에서 Chiyo Film이 **켜짐**인지 확인합니다.
 3. Chiyo Film 앱의 **도움말 › Photoshop 플러그인 다시 설치…**를 누릅니다. Adobe 플러그인 설치 도구로 다시 설치하고, 그게 안 되면 Creative Cloud에 설치를 맡깁니다(창이 뜨면 ‘설치’). 그다음 Photoshop을 다시 켭니다.
-4. 그래도 안 되면 Finder에서 ⇧⌘G로 `/Library/Application Support/Chiyo Film/1.8.1/`를 열고 `chiyo-film-1.8.1-photoshop.ccx`를 **더블클릭**합니다.
+4. 그래도 안 되면 Finder에서 ⇧⌘G로 `/Library/Application Support/Chiyo Film/1.9.0/`를 열고 `chiyo-film-1.9.0-photoshop.ccx`를 **더블클릭**합니다.
 
 > Photoshop 플러그인은 Creative Cloud 앱을 통해 설치됩니다. Creative Cloud 앱이 없거나 로그아웃되어 있으면 설치되지 않으니 먼저 설치·로그인하세요. 처음 실행할 때 Photoshop이 편집기 실행 권한을 물으면 **‘내 선택 기억’**을 켜고 허용합니다.
 
@@ -95,6 +95,7 @@ Lightroom에서 **사진 › 편집 › Chiyo Film**으로 보내려면 Chiyo Fi
 - **피부톤 (새)**: 피부색을 기준 색으로 고르게(균일하게) + 색온도·틴트·채도·밝기, 색상 휠로 범위 조절
 - **정밀 색보정 (새)**: 리프트·감마·게인·오프셋 휠, 색조·밝기·채도 곡선 5종. 톤 곡선 ‘밝기’ 채널, 빠른 조정 키(Q·W·E…), 자동 수평(⇧A)
 - **사진 보정 (Lightroom처럼)**: 기본 보정(밝은/어두운 영역, 텍스처, 부분 대비, 디헤이즈, 생동감), 톤 곡선, 색상 혼합, 컬러 그레이딩 휠, 노이즈 감소, 렌즈 보정
+- **필름 같은 흑백 (1.9, 새)**: 흑백 필름을 실제 분광 감도로 계산(범색성·영화용·정색성·적외선 강조·청색 감광), **흑백 렌즈 필터**(노랑·주황·빨강·초록·파랑 — 실제 필터처럼 하늘과 피부가 달라짐), 흑백 인화지의 **인화지 등급** −1 ~ 5. 이전 편집은 그대로 열림
 - **필름 효과**: 인화 매체(현상소 스캔, 인화지, 영화 인화), 광선(블룸·할레이션·확산·모션·스트릭), 그레인, 빛 샘(1.8.1: 사진 위 핸들로 위치·방향 조절), 먼지·잔섬유(1.8.1: 더 자연스럽게)·스크래치, 오버스캔
 - **마스크**: 원형·선형·브러시·밝기·색상 범위, 자동 피사체·사람·하늘. 마스크마다 밝은/어두운 영역·텍스처·부분 대비·디헤이즈·생동감·노이즈 감소·색상 보정
 - **자르기·회전·수평 맞추기**: 비율 프리셋, 수평선 긋기, 90° 회전·뒤집기 (R 키)
@@ -134,7 +135,7 @@ Lightroom에서 **사진 › 편집 › Chiyo Film**으로 보내려면 Chiyo Fi
 ## 제거
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.8.1/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/1.9.0/uninstall.sh"
 ```
 
 프리셋·즐겨찾기(`~/Library/Application Support/Chiyo Film`)는 남습니다.

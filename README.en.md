@@ -16,7 +16,7 @@ A film-emulation editor for Mac. Film looks built from real datasheet curves, pl
 
 ## Download
 
-**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.8.1.pkg`
+**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.9.0.pkg`
 
 - macOS 13 or later, Apple Silicon (M1 or later)
 - Lightroom Classic and/or Photoshop 2025 or later (optional — the library and editor work on their own)
@@ -29,7 +29,7 @@ The app follows your Mac's language. To switch: **Advanced › 언어 · Languag
 ## Install
 
 1. Quit Photoshop and Lightroom Classic (save your work first).
-2. Open `ChiyoFilm-1.8.1.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
+2. Open `ChiyoFilm-1.9.0.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
 3. The editor app (`/Applications/Chiyo Film.app`), the Photoshop plug-in and the Lightroom plug-in are installed together. Install straight over an earlier version; presets, favourites and edit history are kept.
 
 ### Lightroom Classic setup (once)
@@ -57,7 +57,7 @@ After installing, **Plugins › Chiyo Film › Open Chiyo Film Editor** is in th
 1. Quit Photoshop completely (⌘Q) and open it again — required if it was running during the install.
 2. **Plugins › Manage Plugins…** (opens the Creative Cloud app) › installed plug-ins: make sure Chiyo Film is **On**.
 3. In the Chiyo Film app choose **Help › Reinstall Photoshop Plug-in…**. It reinstalls with Adobe's plug-in installer, or hands the plug-in to Creative Cloud (click "Install" when asked). Then restart Photoshop.
-4. Still missing: in Finder press ⇧⌘G, go to `/Library/Application Support/Chiyo Film/1.8.1/` and **double-click** `chiyo-film-1.8.1-photoshop.ccx`.
+4. Still missing: in Finder press ⇧⌘G, go to `/Library/Application Support/Chiyo Film/1.9.0/` and **double-click** `chiyo-film-1.9.0-photoshop.ccx`.
 
 > Photoshop plug-ins are installed through the Creative Cloud app: if it is missing or signed out, install it and sign in first. The first time, if Photoshop asks for permission to launch the editor, turn on **"Remember my choice"** and allow it.
 
@@ -84,6 +84,7 @@ After installing, **Plugins › Chiyo Film › Open Chiyo Film Editor** is in th
 - **RAW Development (new):** exposure, white balance, highlight recovery and shadows with macOS's RAW engine, keeping up to 2 stops above white. Sony A7 V · A7R VI open too. RAW+JPG as two photos or one.
 - **Many photos at once (new):** ⌘/⇧-click multi-select, **Sync** (choose parts) and **Auto sync**, copy / paste edits, apply the previous edit, **virtual copies** (⌘'), right-click menus.
 - **Export (new):** presets for web / social, print TIFF, Instagram 4:5, original size and Photoshop PSD; JPEG · HEIC · TIFF · PSD with size estimate, naming templates and a background queue. Right from the editor and loupe (⌘E), or just the picks.
+- **Black-and-white like film (1.9, new):** B&W films computed from their spectral sensitivity (panchromatic, cine, orthochromatic, extended red, blue-only), **B&W lens filters** (yellow, orange, red, green, blue — sky and skin change as with a real filter), and **paper grades** −1 to 5 on B&W papers. Earlier edits open unchanged.
 - **1.8.1:** place the light leak with handles on the photo (like a linear gradient mask), and more natural dust and fibres.
 - **Basic adjustments like Lightroom:** Highlights and Whites recover highlights naturally and sliders respond instantly; auto skin tone stays on the face.
 - **Spectral film colour:** models each film layer's spectral sensitivity and, for print stocks (cinema print 2383, paper), the dyes printing onto each other. Reds and skin come out cleaner and less muddy; cinema print skies turn teal on their own. New edits use it by default; edits saved earlier open unchanged (Adjust › Film › Color science).
@@ -122,7 +123,7 @@ Create a report with **Advanced › Create Problem Report File…** and attach i
 ## Uninstall
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.8.1/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/1.9.0/uninstall.sh"
 ```
 
 Your presets and favourites (`~/Library/Application Support/Chiyo Film`) are kept.
