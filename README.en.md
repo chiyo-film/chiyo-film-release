@@ -4,7 +4,7 @@ English · **[한국어](README.md)**
 
 **Free · Cull, develop RAW, add the film look and export in one app · Also inside Lightroom Classic & Photoshop · 154 film looks**
 
-A film-emulation editor for Mac. Film looks built from real datasheet curves, plus photo adjustments, face retouching, frames and cinema looks. From 1.7 it also works on its own as a **photo library**: open a folder, cull, develop RAW, finish like film and export.
+A film-emulation editor for Mac. Film looks built from real datasheet curves, plus photo adjustments, face retouching, frames and cinema looks. 2.0 (beta) adds a new menu-based editor and **virtual film rolls · time travel · restore**. From 1.7 it also works on its own as a **photo library**: open a folder, cull, develop RAW, finish like film and export.
 
 ![Before/after: N102 Warm snapshot · S102 Classic slide · C601 Cool night · N101 Natural portrait · N104 Soft portrait · M301 Classic B&W](img/00-before-after.jpg)
 
@@ -16,7 +16,7 @@ A film-emulation editor for Mac. Film looks built from real datasheet curves, pl
 
 ## Download
 
-**[Get the latest release](../../releases/latest)** → `ChiyoFilm-1.10.0.pkg`
+**[Get 2.0 beta 1](../../releases/tag/v2.0.0-beta.1)** → `ChiyoFilm-2.0.0.pkg` (beta 1, about 224 MB — includes the learned models)
 
 - macOS 13 or later, Apple Silicon (M1 or later)
 - Lightroom Classic and/or Photoshop 2025 or later (optional — the library and editor work on their own)
@@ -29,8 +29,8 @@ The app follows your Mac's language. To switch: **Advanced › 언어 · Languag
 ## Install
 
 1. Quit Photoshop and Lightroom Classic (save your work first).
-2. Open `ChiyoFilm-1.10.0.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
-3. The editor app (`/Applications/Chiyo Film.app`), the Photoshop plug-in and the Lightroom plug-in are installed together. Install straight over an earlier version; presets, favourites and edit history are kept.
+2. Open `ChiyoFilm-2.0.0.pkg`. If macOS says "unidentified developer", **right-click › Open** in Finder, or **System Settings › Privacy & Security › Open Anyway**.
+3. The editor app (`/Applications/Chiyo Film.app`), the Photoshop plug-in and the Lightroom plug-in are installed together. Install straight over an earlier version; presets, favourites and edit history are kept, and edits saved in 1.x open as before.
 
 ### Lightroom Classic setup (once)
 
@@ -59,7 +59,7 @@ After installing, **Plugins › Chiyo Film › Open Chiyo Film Editor** is in th
 1. Quit Photoshop completely (⌘Q) and open it again — required if it was running during the install.
 2. **Plugins › Manage Plugins…** (opens the Creative Cloud app) › installed plug-ins: make sure Chiyo Film is **On**.
 3. In the Chiyo Film app choose **Help › Reinstall Photoshop Plug-in…**. It reinstalls with Adobe's plug-in installer, or hands the plug-in to Creative Cloud (click "Install" when asked). Then restart Photoshop.
-4. Still missing: in Finder press ⇧⌘G, go to `/Library/Application Support/Chiyo Film/1.10.0/` and **double-click** `chiyo-film-1.10.0-photoshop.ccx`.
+4. Still missing: in Finder press ⇧⌘G, go to `/Library/Application Support/Chiyo Film/2.0.0/` and **double-click** `chiyo-film-2.0.0-photoshop.ccx`.
 
 > Photoshop plug-ins are installed through the Creative Cloud app: if it is missing or signed out, install it and sign in first. The first time, if Photoshop asks for permission to launch the editor, turn on **"Remember my choice"** and allow it.
 
@@ -77,6 +77,21 @@ After installing, **Plugins › Chiyo Film › Open Chiyo Film Editor** is in th
 
 > **Tip:** open RAW files in the library and start with **RAW Development** (exposure, white balance, highlight recovery). If you use Lightroom, developing there first and sending the photo to Chiyo Film still works as before.
 
+## New in 2.0 (beta 1)
+
+- **New editor layout:** a menu rail at the right edge (Adjust · Film · Look · Effects · Masks · Frame, plus History · Advanced; ⌘1–⌘6). Every menu has **Simple · Detailed** views and **Reset (↺)**, with **Find a control (🔍)** anywhere. A histogram with clipping triangles and Auto adjust on Adjust, Film → Development → Print pages, 12 effect cards with in-card strength, captions edited right in the Frame menu and **23 caption fonts**. The left film list moved into the Film menu.
+- **Virtual film rolls:** group photos into 12 · 24 · 36-frame rolls printed with one film and development — frame-to-frame variation, a first-frame light leak, frame numbers, a **contact sheet** view and export, and an optional delayed reveal (in an hour · next day).
+- **Time travel:** Effects › Time ages a print 0–50 years by storage (album · by a window · drawer · original film) and print medium (colour paper turns red and yellow, print film pink, B&W browns and silvers out), with stains and faded edges.
+- **Restore:** Adjust › Restore old photo diagnoses a scan, revives faded colour and removes yellowing, stains, dust, scratches, creases, torn corners and halftone, and sharpens. A **damage brush**, **B&W colourisation** (learned model — the colours are the model's guess) and **2× · 4× upscaling** (off in Photoshop in this beta).
+- **Camera spectral (RAW):** colour films expose from the camera sensor's spectral sensitivity (52 measured cameras, others estimated from the RAW's colour matrices). Look-match strength levels are now clearly different.
+- Edits and presets saved in 1.x open and render as before. The installer is larger (about 224 MB) because it includes the learned models.
+
+![Virtual film roll — contact sheet](img/20-roll.jpg)
+
+![Restore](img/18-restore.jpg)
+
+![Frame and fonts](img/19-frame-fonts.jpg)
+
 ## Highlights (1.8)
 
 - **Match Set (new):** evens out brightness, white balance, skin colour (measured per face), contrast and saturation of a set against a reference photo, with per-photo changes, before/after previews, a strength slider and one-step ⌘Z.
@@ -89,7 +104,7 @@ After installing, **Plugins › Chiyo Film › Open Chiyo Film Editor** is in th
 - **Black-and-white like film (1.9, new):** B&W films computed from their spectral sensitivity (panchromatic, cine, orthochromatic, extended red, blue-only), **B&W lens filters** (yellow, orange, red, green, blue — sky and skin change as with a real filter), and **paper grades** −1 to 5 on B&W papers. Earlier edits open unchanged.
 - **1.8.1:** place the light leak with handles on the photo (like a linear gradient mask), and more natural dust and fibres.
 - **Basic adjustments like Lightroom:** Highlights and Whites recover highlights naturally and sliders respond instantly; auto skin tone stays on the face.
-- **Spectral film colour:** models each film layer's spectral sensitivity and, for print stocks (cinema print 2383, paper), the dyes printing onto each other. Reds and skin come out cleaner and less muddy; cinema print skies turn teal on their own. New edits use it by default; edits saved earlier open unchanged (Adjust › Film › Color science).
+- **Spectral film colour:** models each film layer's spectral sensitivity and, for print stocks (cinema print 2383, paper), the dyes printing onto each other. Reds and skin come out cleaner and less muddy; cinema print skies turn teal on their own. New edits use it by default; edits saved earlier open unchanged (Film › Detailed › Film › Color science).
 - **English interface**
 - **Picks for this photo:** suggests 3–5 looks for each photo from its colours, subject and mood, with a reason.
 - **30 cinema looks:** moods inspired by Japanese, Korean and world cinema (e.g. "Seaside Sisters in Summer — Kore-eda Hirokazu · Our Little Sister feel"), tuned by measuring stills and reading cinematography notes. Interpretations only — not affiliated with any filmmaker or studio, and no film stills ship with the app.
@@ -100,7 +115,7 @@ After installing, **Plugins › Chiyo Film › Open Chiyo Film Editor** is in th
 - **Photo adjustments like Lightroom:** Basic, Tone Curve (incl. Luminance), Color Mixer, Color Grading, Precision Color (lift/gamma/gain/offset, hue curves), Detail, Lens Corrections.
 - **Face retouch & skin tone:** blemish removal (moles kept unless you choose), dark circles, even skin with texture kept, contouring; skin-tone uniformity with a colour wheel.
 - **Masks:** radial, linear, brush, luminance, colour range, auto subject / person / sky.
-- **Frames & layouts:** 26 frames (palette, captions, film strip, contact sheet, deckle, textures), 2–4 photo layouts with carousel export.
+- **Frames & layouts:** 26 frames (palette, captions with 23 fonts, film strip, contact sheet, deckle, textures), 2–4 photo layouts with carousel export.
 - Reference-photo look matching, `.cube` LUT export, GPU real-time preview, histogram / waveform / RGB parade.
 - Everything runs locally on your Mac — no account, no internet.
 
@@ -125,7 +140,7 @@ Create a report with **Advanced › Create Problem Report File…** and attach i
 ## Uninstall
 
 ```sh
-sudo "/Library/Application Support/Chiyo Film/1.10.0/uninstall.sh"
+sudo "/Library/Application Support/Chiyo Film/2.0.0/uninstall.sh"
 ```
 
 Your presets and favourites (`~/Library/Application Support/Chiyo Film`) are kept.
