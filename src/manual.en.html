@@ -36,7 +36,7 @@
   <h1>Chiyo Film 2.0</h1>
   <div class="sub">A Mac editor that gives your photos the color and grain of real film · User Manual</div>
   <img src="../img/01-editor.png" alt="Chiyo Film editor">
-  <div class="meta">Version 2.0.0 (beta 1) · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
+  <div class="meta">Version 2.0.0 (beta 2) · macOS 13 or later (Apple silicon) · Photoshop 2025 or later / Lightroom Classic</div>
 </section>
 
 <h2>Contents</h2>
@@ -150,15 +150,28 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <tr><td><kbd>⌘</kbd><kbd>Z</kbd></td><td>Undo culling</td><td><kbd>?</kbd></td><td>All shortcuts</td></tr>
 </table>
 <p>With <b>Auto advance</b> on, flagging moves to the next photo (<kbd>⇧</kbd>+<kbd>P</kbd>/<kbd>X</kbd> does the opposite). RAW ratings and labels also go to <code>.xmp</code> so Lightroom and Bridge can read them.</p>
-<figure><img src="../img/14-loupe.jpg" alt="Loupe"><figcaption>Loupe: capture info, filmstrip, key hints and ‘Export N picks…’ at the bottom right</figcaption></figure>
+<figure><img src="../img/14-loupe.jpg" alt="Loupe"><figcaption>Loupe (2.0): Fit · 100% · Info · View ▾ · ? at the top, a quick bar under the photo (stars · Pick · Hold · Reject · Edit), ‘Export N picks…’ at the bottom right</figcaption></figure>
+<p>The loupe’s <b>View ▾</b> holds the background (black · dark grey · 18% grey · white), histogram · focus point (AF) · grid, Decode RAW original (<kbd>R</kbd>), keep zoom when moving and auto advance. Info (<kbd>I</kbd>) shows over the photo and the right panel is hidden in the loupe by default. In <b>Compare</b>, each pane has its own stars, Pick and Reject, and ‘↑ This one’s better (make reference)’ swaps a better candidate in.</p>
 <h3>Selecting several · filters · smart collections</h3>
 <ul>
   <li>Click selects one, <kbd>⌘</kbd>-click adds or removes, <kbd>⇧</kbd>-click selects a range, <kbd>⌘</kbd><kbd>A</kbd> selects all — in the grid, the loupe and the editor's filmstrip.</li>
-  <li>Filter bar: rating · flag · colour label · edited / unedited · file type · blurry · eyes closed · out of focus · burst · best. The search field finds file names and tags.</li>
+  <li>Filter bar (2.0): <b>All · ⚑ Picks · ★ & up ▾ · ● Color ▾ · Filter ▾</b>. Filter ▾ holds flags (pick · hold · reject · none) · edited / unedited · file type · blurry · eyes closed · out of focus · burst · best, with a badge for how many are on. On the right: sort · thumbnail size · info panel (ⓘ) · shortcuts (?). The search field finds file names and tags.</li>
   <li><b>Smart collections</b> on the left: Edited · 4 stars & up · Picks · Possibly blurry · Eyes closed · Burst groups.</li>
 </ul>
 <h3>Auto-cull help</h3>
-<p>After a folder opens, photos are analysed in the background: <b>bursts are grouped with a suggested best shot</b>, and blur, missed focus, closed eyes and exposure are flagged. In the <b>Auto Cull</b> tab, per group: <kbd>A</kbd> accept · <kbd>S</kbd> skip · <kbd>B</kbd> make this the best. Suggestions never change flags you set yourself.</p>
+<p>After a folder opens, photos are analysed in the background (on this Mac only): <b>bursts and near duplicates are grouped with a suggested best shot</b>, and blur, missed focus, closed eyes and exposure are found. In the <b>Auto Cull</b> tab (2.0):</p>
+<figure><img src="../img/22-autocull.jpg" alt="Auto Cull"><figcaption>Auto Cull: the Find chips and ⚙ Cull settings, a three-step guide, dashed = suggested best, marked groups with solid flags</figcaption></figure>
+<ol>
+  <li><b>Check the suggestion</b>: the shot with a dashed border and ‘★ Suggested best’ is only a suggestion; nothing is written yet.</li>
+  <li>If another shot is better, <b>click</b> it (or <kbd>B</kbd>) to make it the best. Double-click (<kbd>Space</kbd>) views it large.</li>
+  <li><b>Mark as shown</b> (<kbd>A</kbd>) gives the best the Pick flag and the rest Hold (the result is previewed next to the button). Flags you set yourself stay, and no photo is deleted. Undo per group, or <kbd>⌘</kbd><kbd>Z</kbd>; <b>Skip</b> (<kbd>S</kbd>) moves on.</li>
+  <li>When every group is seen, a <b>Culling done</b> card offers <b>Show only the N picks</b> · Apply a look to all · Export.</li>
+</ol>
+<ul>
+  <li><b>⚙ Cull settings</b>: where results go (flags · stars · colour labels) and their values, keep values set by hand, which file of a RAW+JPG pair gets them, blur sensitivity · burst gap · shots kept per group · similarity, prefer open eyes, AF area only, an ISO condition.</li>
+  <li><b>RAW+JPG</b>: a RAW and JPG with the same name are one shot (one card, ‘RAW+JPG’); marking flags <b>both</b> files (or RAW / JPG only in the settings).</li>
+  <li><b>Reset</b>: clears every flag in this folder (yours too) and starts over. It asks first, and <kbd>⌘</kbd><kbd>Z</kbd> undoes it; ratings and colour labels stay.</li>
+</ul>
 <h3>RAW Development</h3>
 <ul>
   <li>RAW photos get a RAW row at the top of the Adjust menu and a <b>RAW Development</b> section under <b>Basic</b> in its detailed view (exposure · white balance · highlight recovery · shadows · noise…). macOS's RAW engine develops them, keeping up to about 2 stops above white so Highlights and Whites can bring back blown skies.</li>
@@ -168,7 +181,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 </ul>
 <h3>Right-click menus</h3>
 <ul>
-  <li><b>Photos</b>: Open in Editor · View in Loupe · Compare side by side · flags · rating · colour label · Create virtual copy · Sync edit · Apply previous edit · Apply look · Copy / Paste edit · Clear edit · Export · Copy / move originals · Select (all · none · invert · picks · edited) · Show in Finder · Copy file name. Right-clicking a photo outside the selection acts on it alone.</li>
+  <li><b>Photos</b> (2.0): Pick · Hold · Reject · Unflag · Rating ▸ · Color label ▸ | Open in Editor · Apply look ▸ · Copy edit · Paste edit · Sync… · Create virtual copy | Add to compare · Add to roll ▸ · Match set… | Export… · Show in Finder. The rest (View in Loupe · Apply previous edit · Clear edit · Copy / move originals · Select · Copy file name) is under <b>More ▸</b>. With several photos selected it acts on all of them; right-clicking a photo outside the selection acts on it alone.</li>
   <li><b>Folders</b>: Show only this folder · Select all · Export this folder · Reload · Show in Finder · Copy path · Remove from recent folders. <b>Smart collections</b>: Show · Select all · Export these photos.</li>
 </ul>
 <h3>Same edit on many photos (sync · virtual copies)</h3>
@@ -228,13 +241,15 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 
 <h2>5. Export</h2>
 <ol>
-  <li>Press <kbd>⌘</kbd><kbd>E</kbd> or <b>Export…</b> in the grid, loupe or editor. In the editor the export button in the top bar opens the sheet over the editor. For rolls, use Export contact sheet · Export N photos in the roll settings (chapter 4).</li>
+  <li>Press <kbd>⌘</kbd><kbd>E</kbd> or <b>Export…</b> in the grid, loupe or editor. In the editor the orange <b>Export…</b> at the top right opens the sheet over the editor. The sheet opens with <b>the settings you used last</b>. For rolls, use Export contact sheet · Export N photos in the roll settings (chapter 4).</li>
   <li>Choose the scope at the top: <b>Selected · Picks · All shown</b>. ‘Export N picks…’ under the loupe sends the photos flagged Pick right away.</li>
   <li><b>What are the photos for?</b> Web / social JPEG · Print TIFF 16-bit · Instagram 4:5 · Original size · To Photoshop (PSD), plus ‘Save current settings as preset’.</li>
   <li>Format (JPEG · HEIC · TIFF · PSD), size (long edge · short edge · % · original, never enlarging small photos), destination (default: a ‘Chiyo 내보내기’ folder inside the photo's folder).</li>
-  <li><b>Details</b>: quality (with estimated size per photo and in total) · colour space · output sharpening · include frame / date stamp · metadata · file name template · subfolders · name conflicts.</li>
+  <li><b>Details</b>: quality · colour space · output sharpening · include frame / date stamp · metadata · file name template · subfolders · name conflicts.</li>
+  <li><b>Estimated size</b>: up to three of the photos are made with the current settings in a temporary folder and measured (‘measuring by making sample files…’ → ‘measured by making sample files’), so grain, crop, frame and upscaling all count; for one photo it is its real size.</li>
+  <li><b>JPEG quality</b> (2.0 beta 2): colour is kept at full resolution (4:4:4), so film grain does not turn into blocky colour when an export is zoomed in. The colour profile and capture info are written. Screen sharpening uses a small radius on the output’s pixels (0.8 px).</li>
   <li>Exports run in a background queue (pause, cancel) and are saved as <b>separate files</b>; originals stay as they are.</li>
-  <li><b>Copy / move originals</b> tab: copies or moves the files as they are (with RAW+JPG pairs, <code>.chiyo</code> and <code>.xmp</code>) for delivery or backup.</li>
+  <li><b>Copy / move originals</b> tab: copies or moves the files as they are (with RAW+JPG pairs, <code>.chiyo</code> and <code>.xmp</code>) for delivery or backup. It takes the chosen photos (when several are chosen), picks, holds, a star rating or color labels — any that match.</li>
 </ol>
 
 <h2 class="pb">6. The editor window (2.0)</h2>
@@ -244,8 +259,8 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <tr><td>Menu rail (far right)</td><td><b>Adjust · Film · Look · Effects · Masks · Frame</b>, with <b>History · Advanced</b> at the bottom. <kbd>⌘</kbd><kbd>1</kbd>–<kbd>⌘</kbd><kbd>6</kbd> jump straight to a menu. A menu with something changed from its defaults gets an orange dot, and the menu you chose is remembered. Clicking the current menu again hides or shows the panel (<kbd>F</kbd>).</td></tr>
   <tr><td>Menu panel</td><td>Next to the title: <b>Reset (↺)</b>, <b>Find a control (🔍)</b> and <b>Simple · Detailed</b>. Drag the edge to resize it; double-click it for the default width.</td></tr>
   <tr><td>Photo</td><td>Zoom and pan with the trackpad; double-click for fit ↔ 100%. Floating tools on the left of the photo: <b>Eyedropper</b> (pick white balance · skin reference colour · colour range on the photo), <b>Crop</b> (<kbd>R</kbd>), <b>Before / after</b> (split · side by side · before).</td></tr>
-  <tr><td>Bottom right of the photo</td><td>A small bar: zoom level, clipping warnings, Scopes (Histogram · Waveform · RGB Parade), help.</td></tr>
-  <tr><td>Top bar</td><td>Center: file name with the film code and description (for a roll frame, “Roll ‘name’ frame 12”). Right: undo · redo, Before / after, Revert, and — when opened from Photoshop or Lightroom — <b>Cancel</b> (<kbd>Esc</kbd>) · <b>Apply</b> (<kbd>Return</kbd>). When opened from the library, the left has a <b>Library · Rolls · Edit</b> switch and the right has Saved · Export · Revert · <b>Done</b> (edits are saved automatically in the <code>.chiyo</code> file next to the photo).</td></tr>
+  <tr><td>Bottom right of the photo</td><td>A small bar: zoom level, <b>Clipping</b> warnings, <b>Light effects</b> (only the light halation or bloom adds, as a heat map), Scopes (Histogram · Waveform · RGB Parade), help.</td></tr>
+  <tr><td>Top bar</td><td>Center: file name with the film code and description (for a roll frame, “Roll ‘name’ frame 12”). Right: undo · redo, Before / after, Revert, and — when opened from Photoshop or Lightroom — <b>Cancel</b> (<kbd>Esc</kbd>) · <b>Apply</b> (<kbd>Return</kbd>). When opened from the library, the left has a <b>Library · Rolls · Edit</b> switch (back to the library; <kbd>Return</kbd> does the same) and the right has Saved · Revert · an orange <b>Export…</b> (<kbd>⌘</kbd><kbd>E</kbd>). Edits are always saved automatically in the <code>.chiyo</code> file next to the photo and the original photo stays as it is; files are made by exporting.</td></tr>
   <tr><td>Filmstrip at the bottom</td><td>Only when opened from the library. For a roll frame it shows the roll's frames and numbers.</td></tr>
 </table>
 <h3>Simple · Detailed</h3>
@@ -296,7 +311,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <tr><td>Color Mixer</td><td>Hue, saturation and luminance for 8 colors: red, orange, yellow, green, aqua, blue, purple, magenta. One color at a time (pick a swatch) or ‘Show all’ (24 sliders)</td></tr>
   <tr><td>Color Grading</td><td>Shadows, midtones, highlights and global color wheels with luminance, Blending and Balance. Click a wheel or drag its point; hold <kbd>⇧</kbd> while dragging for fine control; double-click to reset</td></tr>
   <tr><td>Precision Color</td><td>Lift, Gamma, Gain and Offset color wheels with luminance. Five curves: Hue vs Hue, Hue vs Sat, Hue vs Lum, Lum vs Sat, Sat vs Sat (use the Eyedropper to place a point on a color in the photo)</td></tr>
-  <tr><td>Skin Tone</td><td>All skin, Face skin and Body skin tabs; a reference color (Auto or Eyedropper); <b>Uniformity</b>; Temperature, Tint, Saturation and Luminance. Open ‘Range’ to drag the range of colors and the reference point on a color wheel</td></tr>
+  <tr><td>Skin Tone</td><td>All skin, Face skin and Body skin tabs; a reference color (Auto or Eyedropper); <b>Ambient colour fix</b> (0.7 by default: each photo's face skin and background colour are measured and every part of the skin (pink highlights, yellow or green shadows) is drawn toward a natural skin tone, keeping a little of the background's warmth so the person fits the scene; it rests without a face, on Original (no film), or when Temperature or Tint is set); <b>Uniformity</b>; Temperature, Tint, Saturation and Luminance. Open ‘Range’ to drag the range of colors and the reference point on a color wheel</td></tr>
   <tr><td>Detail</td><td>Sharpening; luminance and color noise reduction (detail, contrast, smoothness)</td></tr>
   <tr><td>Skin Retouch</td><td>Finds the face, eyes, eyebrows and lips and works on skin only: <b>Blemish removal</b> (moles are kept unless you turn on ‘Remove moles too’; Protect brush), <b>Dark circles</b>, <b>Even skin</b> (+ texture), <b>Contouring</b>, Include neck, and Size. Pores, sheen, light and shadow are left untouched</td></tr>
   <tr><td>Lens Corrections</td><td>Distortion (barrel/pincushion, edges filled automatically), Vignetting with midpoint, Defringe</td></tr>
@@ -312,7 +327,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <figure><img src="../img/21-print.jpg" alt="The Print page of the Film menu"><figcaption>Film › Print: print medium cards with Print exposure · contrast · saturation · warmth</figcaption></figure>
 <table>
   <tr><th>Page</th><th>What it holds</th></tr>
-  <tr><td>Film</td><td>Six film cards (the current film, picks for this photo, favorites). <b>All films 154 ›</b> opens the full list inside the panel. Controls: Film strength, Fade, Warmth, Texture.</td></tr>
+  <tr><td>Film</td><td>Six film cards (the current film, suggestions for this photo, favorites). <b>All films 154 ›</b> opens the full list inside the panel. The Detailed view starts with the current film and <b>Change film</b>. Controls: Film strength, Fade, Warmth, Texture.</td></tr>
   <tr><td>Development</td><td>Push / pull, development contrast, saturation, Color boost. Detailed: film exposure, bleach bypass, base fog, development gamma, compression and levels.</td></tr>
   <tr><td>Print</td><td>Print medium cards (what the film is printed on or scanned with), Print exposure · contrast · saturation, Warmth (shadow, midtone and highlight toning of the print together). Detailed: printer points, CMY filters, tint, preflash, shadow and highlight shape.</td></tr>
 </table>
@@ -338,7 +353,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
   <li><b>Spectral</b>: the photo's light is received through the per-layer spectral sensitivities from the film datasheet (including the overlap between layers and interlayer effects). Deep reds and skin come out cleaner and less muddy. Colors don't get stronger — they move in a direction closer to real film; greys and exposure are identical in both modes. RAW photos also use the camera sensor's spectral sensitivity (chapter 13).</li>
   <li>When a negative is printed on the measured print media <b>P101 · Print film</b> (Kodak Vision 2383 feel) or <b>P102 · Color paper</b> (Kodak Endura feel), the print colors are computed spectrally too.</li>
   <li>It applies to 92 color films. Black-and-white and creative films are unchanged.</li>
-  <li>Newly opened photos, choosing a film, built-in looks, Picks for this photo and look matching start in <b>Spectral</b>. Edits and presets saved before 1.6.0 open in <b>Classic</b> and render exactly as before.</li>
+  <li>Newly opened photos, choosing a film, built-in looks, Suggested for this photo and look matching start in <b>Spectral</b>. Edits and presets saved before 1.6.0 open in <b>Classic</b> and render exactly as before.</li>
 </ul>
 <h3>Black-and-white</h3>
 <ul>
@@ -349,12 +364,12 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <div class="tip"><b>To soften the film look:</b> lower Film strength or Detailed › Film › Overall amount. <b>If a portrait is too bright:</b> lower Adjust › Highlights, or bring Film › Print › Print exposure down slightly.</div>
 
 <h2>9. The Look menu (picks · built-in looks · my presets · look matching)</h2>
-<h3>Picks for this photo</h3>
+<h3>Suggested for this photo</h3>
 <ul>
-  <li>When you open a photo, the ‘Picks for this photo’ row at the top of the Look menu suggests 3–5 looks that suit it, each with a thumbnail rendered from your photo and a short reason (for example “Snow scene · Cool light”).</li>
-  <li>The picks weigh the photo's colors and the scene and mood most heavily, add result quality and the looks you use often, and choose looks with different moods. The analysis runs only on this Mac. Click a pick to apply it; ⌘Z undoes it.</li>
+  <li>When you open a photo, the ‘Suggested for this photo’ row at the top of the Look menu suggests 3–5 looks that suit it, each with a thumbnail rendered from your photo and a short reason (for example “Snow scene · Cool light”).</li>
+  <li>The picks weigh the photo's colors and the scene and mood most heavily, add result quality and the looks you use often, and choose looks with different moods. The analysis runs only on this Mac. Click a suggestion to apply it; ⌘Z undoes it.</li>
 </ul>
-<figure><img src="../img/11-recommend.png" alt="Picks for this photo"><figcaption>Picks for this photo (CC0 photo)</figcaption></figure>
+<figure><img src="../img/11-recommend.png" alt="Suggested for this photo"><figcaption>Suggested for this photo (CC0 photo)</figcaption></figure>
 <h3>Cinema looks (Built-in look › Cinema)</h3>
 <ul>
   <li>30 looks that follow the mood of a film scene: Classic Cinema 3 · Japanese Cinema 13 · Korean Cinema 6 · World Cinema 11. Each card shows a mood name and a small “feel” line.</li>
@@ -365,7 +380,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 <figure><img src="../img/09-cinema-looks.jpg" alt="Cinema looks"><figcaption>Cinema look examples (CC0 photos) — left original · right look</figcaption></figure>
 <figure><img src="../img/10-cinema-frames.jpg" alt="Cinema frames"><figcaption>CinemaScope 2.39 · Vista 1.85 · Subtitled Scene</figcaption></figure>
 <h3>Built-in looks · My presets · Matching a reference photo</h3>
-<figure><img src="../img/03-presets.png" alt="Looks"><figcaption>The Look menu: picks for this photo, match look to reference photo, built-in looks</figcaption></figure>
+<figure><img src="../img/03-presets.png" alt="Looks"><figcaption>The Look menu: suggestions for this photo, match look to reference photo, built-in looks</figcaption></figure>
 <ul>
   <li><b>Built-in look</b> (28): Golden Hour Portrait, City Night Cinema, Vintage Slide, Documentary B&amp;W and more, grouped as Portrait, Landscape &amp; Travel, B&amp;W, Vintage, Cinema and Creative.</li>
   <li><b>My presets</b>: save the current settings under a name. Favorite, search, rename, export and import.</li>
@@ -383,7 +398,7 @@ To uninstall, run this in Terminal: <code>sudo "/Library/Application Support/Chi
 </ul>
 <table>
   <tr><th>Section</th><th>What it does</th></tr>
-  <tr><td>Glow</td><td>Bloom · Halation · Diffusion · Motion · Streak styles. Choosing a style shows only Amount, Range, Spread and Warmth (+ direction and softness); the rest is under ‘Detail’</td></tr>
+  <tr><td>Glow</td><td>Bloom · Halation · Soft focus · Motion · Streak styles. Choosing a style shows only Amount, Range, Spread and Warmth (+ direction and softness); the rest is under ‘Detail’</td></tr>
   <tr><td>Diffusion Filter</td><td>Black Mist (halo around highlights, blacks stay black) · White Mist (milky veil) · Glimmer · Cine Bloom. Amount, size and halo warmth. Masks can exclude people or apply it to part of the photo</td></tr>
   <tr><td>Grain</td><td>Amount, Grain size, color, Film resolution, shadow/midtone/highlight grain. The ‘Measured’ grain model sets the grain for each film from datasheet granularity</td></tr>
   <tr><td>Optics &amp; Lens Effects</td><td>Edge blur, Veiling flare, Film resolving power, Add chromatic aberration, Coma</td></tr>

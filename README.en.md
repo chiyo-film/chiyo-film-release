@@ -16,7 +16,7 @@ A film-emulation editor for Mac. Film looks built from real datasheet curves, pl
 
 ## Download
 
-**[Get 2.0 beta 1](../../releases/tag/v2.0.0-beta.1)** → `ChiyoFilm-2.0.0.pkg` (beta 1, about 224 MB — includes the learned models)
+**[Get 2.0 beta 2](../../releases/tag/v2.0.0-beta.2)** → `ChiyoFilm-2.0.0.pkg` (beta 2, about 225 MB — includes the learned models)
 
 - macOS 13 or later, Apple Silicon (M1 or later)
 - Lightroom Classic and/or Photoshop 2025 or later (optional — the library and editor work on their own)
@@ -77,7 +77,7 @@ After installing, **Plugins › Chiyo Film › Open Chiyo Film Editor** is in th
 
 > **Tip:** open RAW files in the library and start with **RAW Development** (exposure, white balance, highlight recovery). If you use Lightroom, developing there first and sending the photo to Chiyo Film still works as before.
 
-## New in 2.0 (beta 1)
+## New in 2.0 (beta)
 
 - **New editor layout:** a menu rail at the right edge (Adjust · Film · Look · Effects · Masks · Frame, plus History · Advanced; ⌘1–⌘6). Every menu has **Simple · Detailed** views and **Reset (↺)**, with **Find a control (🔍)** anywhere. A histogram with clipping triangles and Auto adjust on Adjust, Film → Development → Print pages, 12 effect cards with in-card strength, captions edited right in the Frame menu and **23 caption fonts**. The left film list moved into the Film menu.
 - **Virtual film rolls:** group photos into 12 · 24 · 36-frame rolls printed with one film and development — frame-to-frame variation, a first-frame light leak, frame numbers, a **contact sheet** view and export, and an optional delayed reveal (in an hour · next day).
